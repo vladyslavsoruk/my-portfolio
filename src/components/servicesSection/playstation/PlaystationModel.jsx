@@ -1,0 +1,110 @@
+import React from "react";
+import { useGLTF } from "@react-three/drei";
+
+export function PlaystationModel(props) {
+  const { nodes, materials } = useGLTF("/playstation_5_digital_edition.glb");
+  return (
+    <group {...props} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+        <mesh
+          geometry={nodes.PS5_PS5_0.geometry}
+          material={materials.material}
+        />
+        <mesh
+          geometry={nodes.PS5_PSLOGO_0.geometry}
+          material={materials.PSLOGO}
+        />
+        <mesh
+          geometry={nodes["PS5BODY_PS_Body_(plastic)_0"].geometry}
+          material={materials.PS_Body_plastic}
+        />
+        <mesh
+          geometry={nodes["PS5BODY_ports_(silver)_0"].geometry}
+          material={materials.ports_silver}
+        />
+        <mesh
+          geometry={nodes.PS5BODY_PS_Light_0.geometry}
+          material={materials.PS_Light}
+        />
+        <mesh
+          geometry={nodes.Cube001_PS_Fan_0.geometry}
+          material={materials.PS_Fan}
+        />
+        <mesh
+          geometry={nodes.PS_Fan_PS_Fan_0.geometry}
+          material={materials.PS_Fan}
+        />
+        <mesh
+          geometry={nodes.PS_Back_Fan_PS_Fan_0.geometry}
+          material={materials.PS_Fan}
+        />
+        <mesh
+          geometry={nodes.PS_STAND_PS_Stand_0.geometry}
+          material={materials.PS_Stand}
+        />
+        <mesh
+          geometry={nodes["PS_Bottom_PS_Body_(matte)_0"].geometry}
+          material={materials.PS_Body_matte}
+        />
+        <mesh
+          geometry={nodes["PS_Back_PS_Body_(matte)_0"].geometry}
+          material={materials.PS_Body_matte}
+        />
+        <mesh
+          geometry={nodes.POWERBUTTON_POWERBUTTON_0.geometry}
+          material={materials.POWERBUTTON}
+        />
+        <mesh
+          geometry={nodes["USB_Port_ports_(blue)_0"].geometry}
+          material={materials.ports_blue}
+        />
+        <mesh
+          geometry={nodes["USB_Port_ports_(black)_0"].geometry}
+          material={materials.ports_black}
+        />
+        <mesh
+          geometry={nodes["USB_Port_ports_(silver)_0"].geometry}
+          material={materials.ports_silver}
+        />
+        <mesh
+          geometry={nodes["USB_PORT2_ports_(blue)_0"].geometry}
+          material={materials.ports_blue}
+        />
+        <mesh
+          geometry={nodes["USB_PORT2_ports_(black)_0"].geometry}
+          material={materials.ports_black}
+        />
+        <mesh
+          geometry={nodes["USB_PORT2_ports_(silver)_0"].geometry}
+          material={materials.ports_silver}
+        />
+        <mesh
+          geometry={nodes["HDMIPORT_ports_(black)_0"].geometry}
+          material={materials.ports_black}
+        />
+        <mesh
+          geometry={nodes["HDMIPORT_ports_(silver)_0"].geometry}
+          material={materials.ports_silver}
+        />
+        <mesh
+          geometry={nodes["HDMIPORT_ports_(gold)_0"].geometry}
+          material={materials.ports_gold}
+        />
+        <mesh
+          geometry={nodes.POWERPORT2_powerport_0.geometry}
+          material={materials.powerport}
+        />
+        <mesh
+          geometry={nodes.POWERPORT_powerport_0.geometry}
+          material={materials.powerport}
+        />
+        <mesh
+          geometry={nodes["POWERPORT_ports_(silver)_0"].geometry}
+          material={materials.ports_silver}
+        />
+      </group>
+    </group>
+  );
+}
+
+useGLTF.preload("/playstation_5_digital_edition.glb");
