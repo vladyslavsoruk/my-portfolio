@@ -1,3 +1,4 @@
+.heroSkeleton,
 .hero {
   height: 100%;
   overflow: hidden;
@@ -29,18 +30,24 @@
   object-fit: cover;
 }
 
-.heroSection {
+.heroSection,
+.heroSectionSkeleton {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.heroSection.left {
+.heroSection.left,
+.heroSectionSkeleton.leftSkeleton {
   flex: 1 1 50%;
 }
 
-.heroTitle {
+.heroTitle,
+.heroTitleSkeleton {
   margin-top: 50px;
+}
+
+.heroTitle {
   font-size: 100px;
   color: pink;
 }
@@ -49,6 +56,7 @@
   color: white;
 }
 
+.awardsSkeleton,
 .awards {
   width: 30%;
 }
@@ -59,7 +67,8 @@
   margin: 16px 0;
 }
 
-.awardList {
+.awardList,
+.awardListSkeleton {
   display: flex;
   gap: 8px;
 }
@@ -77,7 +86,8 @@
   width: max-content;
 }
 
-.heroSection.right {
+.heroSection.right,
+.heroSectionSkeleton.rightSkeleton {
   flex: 1 1 50%;
   justify-content: space-between;
   align-items: end;
@@ -116,7 +126,8 @@
   border-bottom-right-radius: 10px;
 }
 
-.bubbleContainer {
+.bubbleContainer,
+.bubbleSkeletonContainer {
   width: 50%;
   display: flex;
   gap: 8px;
@@ -133,6 +144,7 @@
   font-size: 18px;
   border-radius: 20px 20px 0px 20px;
 }
+
 .bubbleContainer img {
   width: 50px;
   height: 50px;
@@ -141,11 +153,20 @@
   background-color: #dd4c62;
 }
 
+.certificateSkeletonContainer,
 .certificate {
   width: 60%;
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.certificateSkeletonContainer {
+  justify-content: center;
+  align-items: center;
+}
+
+.certificate {
   text-align: center;
   line-height: 24px;
   font-weight: 300;
@@ -158,8 +179,9 @@
   height: 70px;
 }
 
-.contactLink {
-  margin-bottom: 50px;
+.contactLinkContainer {
+  position: relative;
+  margin: 0 12px 50px 0;
 }
 
 .circleText {
@@ -169,6 +191,91 @@
 
 .contactButton {
   position: relative;
+}
+
+/* .wavesEffect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+} */
+
+.wave-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: -1;
+  /* background: #e0e0e0; */
+  /* box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff; */
+
+  /* border-radius: 2em;
+  /* border: none;
+  font-size: 1.5em;
+  padding: 0.7em 1.5em;
+  cursor: pointer;
+  position: relative;
+  color: #333;
+  margin: 2em; */
+}
+
+.wave-btn::before,
+.wave-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  border-radius: inherit;
+  background: rgba(255, 192, 203, 0.525);
+
+  /* background: inherit; */
+  /* box-shadow: 2px 2px 6px #bebebe, -2px -2px 6px #ffffff,
+    inset 2px 2px 6px #bebebe, inset -2px -2px 6px #ffffff; */
+
+  /* box-shadow: 0px 0px 4px #ef1d1d, 0px 0px 4px #3fb912,
+    inset 0px 0px 4px #ef1d1d, inset 0px 0px 4px #3fb912; */
+  box-shadow: 2px 2px 4px #d37e7e, -2px -2px 4px #d27d84,
+    inset 2px 2px 6px #d37e7e, inset -2px -2px 6px #d27d84;
+  animation: wave 7s linear infinite;
+  opacity: 0;
+  transition: 0.3s;
+}
+.wave-btn::after {
+  animation-delay: 1.5s;
+}
+.wave-btn:hover::before,
+.wave-btn:hover::after {
+  animation: none;
+  box-shadow: none;
+}
+
+@keyframes wave {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  30% {
+    width: 107%;
+    height: 107%;
+    opacity: 1;
+  }
+  60% {
+    width: 115%;
+    height: 115%;
+    opacity: 0;
+  }
+  100% {
+    width: 115%;
+    height: 115%;
+    opacity: 0;
+  }
 }
 
 .arrow {
@@ -200,10 +307,12 @@
     top: auto;
     bottom: 0;
   }
-  .bubbleContainer {
+  .bubbleContainer,
+  .bubbleSkeletonContainer {
     width: 100%;
   }
-  .awards {
+  .awards,
+  .awardsSkeleton {
     width: 60%;
   }
 }
@@ -213,39 +322,61 @@
     height: 50%;
   }
   .heroTitle {
-    font-size: 72px;
+    font-size: 61px;
   }
 }
 
 @media (max-width: 768px) {
-  .hero {
+  .hero,
+  .heroSkeleton {
     flex-direction: column;
   }
   .bg {
     height: 60%;
   }
-  .heroSection.left {
-    flex: 1 1 50%;
+  .heroSection.left,
+  .heroSectionSkeleton.leftSkeleton {
+    /* flex: 1 1 50%; */
+    height: 50%;
     align-items: center;
     text-align: center;
     gap: 36px;
   }
+
   .heroTitle {
     font-size: 48px;
   }
-  .awards {
+  .heroTitleSkeleton span {
+    width: 220px !important;
+    height: 100px !important;
+  }
+  .awards,
+  .awardsSkeleton {
     width: 100%;
   }
-  .awardList {
+  .awardList,
+  .awardListSkeleton {
     justify-content: center;
   }
+
   .follow,
   .bubbleContainer,
   .certificate {
     display: none;
   }
-  .heroSection.right {
-    flex: 1 1 50%;
+
+  .heroSection.right,
+  .heroSectionSkeleton.rightSkeleton {
+    /* flex: 1 1 50%; */
+    height: 50%;
     justify-content: end;
+  }
+
+  .followSkeletonContainer {
+    display: none;
+  }
+
+  .bubbleSkeletonContainer {
+    display: none;
   }
 }

@@ -58,7 +58,7 @@ function ContactSection() {
           animate={formIsInView ? "animate" : "initial"}
         >
           <motion.h1 variants={listVariants} className="cTitle">
-            Let`s keep in touch
+            Let`s work together
           </motion.h1>
           <motion.div variants={listVariants} className="formItem">
             <label>Name</label>
@@ -72,7 +72,7 @@ function ContactSection() {
             <label>Message</label>
             <textarea
               rows={10}
-              placeholder="Write your message..."
+              placeholder="Write your message here..."
               name="message"
             ></textarea>
           </motion.div>

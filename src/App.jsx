@@ -1,5 +1,6 @@
 import { useInView } from "motion/react";
 import { lazy, Suspense, useRef } from "react";
+import HeroSectionSkeleton from "./components/heroSection/HeroSectionSkeleton";
 
 const HeroSection = lazy(() => import("./components/heroSection/HeroSection"));
 const PortfolioSection = lazy(() =>
@@ -35,12 +36,13 @@ function App() {
 
   return (
     <div className="container">
-      <section id="#hero" ref={heroRef}>
-        <Suspense fallback={"loading HeroSection..."}>
+      <section id="hero" ref={heroRef}>
+        {/* <HeroSectionSkeleton /> */}
+        <Suspense fallback={<HeroSectionSkeleton />}>
           {heroIsInView && <HeroSection />}
         </Suspense>
       </section>
-      <section id="#services" ref={serviceRef}>
+      <section id="services" ref={serviceRef}>
         <Suspense fallback={"loading ServicesSection..."}>
           {serviceIsInView && <ServicesSection />}
         </Suspense>
@@ -50,7 +52,7 @@ function App() {
           {portfolioIsInView && <PortfolioSection />}
         </Suspense>
       </div>
-      <section id="#contacts" ref={contactRef}>
+      <section id="contact" ref={contactRef}>
         <Suspense fallback={"loading ContactSection..."}>
           {contactIsInView && <ContactSection />}
         </Suspense>
