@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Canvas } from "@react-three/fiber";
 import Shape from "./Shape";
 import { Suspense } from "react";
+import DarkMode from "../lightDarkThemeToggle/DarkMode";
 
 const awardVariants = {
   initial: {
@@ -38,6 +39,8 @@ function HeroSection() {
   return (
     <div className="hero">
       <div className="heroSection left">
+        <DarkMode />
+
         <motion.h1
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
