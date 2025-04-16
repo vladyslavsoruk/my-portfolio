@@ -24,10 +24,11 @@
 
 .service {
   box-sizing: border-box;
+  border: 1px solid transparent;
   width: 50%;
   padding: 30px;
   border-radius: 20px;
-  background-color: #2f213f;
+  background-color: var(--service-background);
   display: flex;
   align-items: center;
   gap: 16px;
@@ -36,8 +37,8 @@
 }
 
 .service.active {
-  border: 1px solid white;
-  background-color: #50396a;
+  border: 1px solid var(--text-primary);
+  background-color: var(--service-active);
 }
 
 .serviceIcon {

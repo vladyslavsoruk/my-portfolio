@@ -1,6 +1,7 @@
 import { useInView } from "motion/react";
 import { lazy, Suspense, useRef } from "react";
 import HeroSectionSkeleton from "./components/heroSection/HeroSectionSkeleton";
+import { ThemeProvider } from "./providers/ThemeProvider";
 
 const HeroSection = lazy(() => import("./components/heroSection/HeroSection"));
 const PortfolioSection = lazy(() =>
@@ -35,29 +36,31 @@ function App() {
   });
 
   return (
-    <div className="container">
-      <section id="hero" ref={heroRef}>
-        {/* <HeroSectionSkeleton /> */}
-        <Suspense fallback={<HeroSectionSkeleton />}>
-          {heroIsInView && <HeroSection />}
-        </Suspense>
-      </section>
-      <section id="services" ref={serviceRef}>
-        <Suspense fallback={"loading ServicesSection..."}>
-          {serviceIsInView && <ServicesSection />}
-        </Suspense>
-      </section>
-      <div ref={portfolioRef}>
-        <Suspense fallback={"loading PortfolioSection..."}>
-          {portfolioIsInView && <PortfolioSection />}
-        </Suspense>
+    <ThemeProvider>
+      <div className="container">
+        <section id="hero" ref={heroRef}>
+          {/* <HeroSectionSkeleton /> */}
+          <Suspense fallback={<HeroSectionSkeleton />}>
+            {heroIsInView && <HeroSection />}
+          </Suspense>
+        </section>
+        <section id="services" ref={serviceRef}>
+          <Suspense fallback={"loading ServicesSection..."}>
+            {serviceIsInView && <ServicesSection />}
+          </Suspense>
+        </section>
+        <div ref={portfolioRef}>
+          <Suspense fallback={"loading PortfolioSection..."}>
+            {portfolioIsInView && <PortfolioSection />}
+          </Suspense>
+        </div>
+        <section id="contact" ref={contactRef}>
+          <Suspense fallback={"loading ContactSection..."}>
+            {contactIsInView && <ContactSection />}
+          </Suspense>
+        </section>
       </div>
-      <section id="contact" ref={contactRef}>
-        <Suspense fallback={"loading ContactSection..."}>
-          {contactIsInView && <ContactSection />}
-        </Suspense>
-      </section>
-    </div>
+    </ThemeProvider>
   );
 }
 

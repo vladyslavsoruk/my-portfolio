@@ -3,8 +3,9 @@ import Speech from "./Speech";
 import { motion } from "motion/react";
 import { Canvas } from "@react-three/fiber";
 import Shape from "./Shape";
-import { Suspense } from "react";
+import { Suspense, useContext } from "react";
 import DarkMode from "../lightDarkThemeToggle/DarkMode";
+import { ThemeContext } from "../../providers/ThemeProvider";
 
 const awardVariants = {
   initial: {
@@ -36,6 +37,7 @@ const followVariants = {
 };
 
 function HeroSection() {
+  const [theme, setTheme] = useContext(ThemeContext);
   return (
     <div className="hero">
       <div className="heroSection left">
@@ -410,14 +412,14 @@ function HeroSection() {
           >
             <path
               d="M5 9C5 5.13401 8.13401 2 12 2C15.866 2 19 5.13401 19 9V15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15V9Z"
-              stroke="white"
+              stroke={theme === "dark" ? "white" : "black"}
               strokeWidth="1"
             />
             <motion.path
               animate={{ y: [0, 5] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
               d="M12 5V8"
-              stroke="white"
+              stroke={theme === "dark" ? "white" : "black"}
               strokeWidth="1"
               strokeLinecap="round"
             />
@@ -472,7 +474,7 @@ function HeroSection() {
               whileTap={{ scale: 0.95 }}
             >
               <svg viewBox="0 0 200 200" width="150" height="150">
-                <circle cx="100" cy="100" r="90" fill="pink" />
+                <circle cx="100" cy="100" r="90" fill="var(--text-emphasis)" />
                 <path
                   id="innerCirclePath"
                   fill="none"
