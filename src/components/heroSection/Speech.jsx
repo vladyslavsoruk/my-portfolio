@@ -6,10 +6,10 @@ function Speech() {
     <motion.div
       className="bubbleContainer"
       animate={{ opacity: [0, 1] }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 1.5 }}
     >
       <div className="bubble">
-        <TypeAnimation
+        {/* <TypeAnimation
           sequence={[
             1000,
             "Same substring at the start will only be typed out once, initially",
@@ -21,7 +21,12 @@ function Speech() {
           speed={40}
           deletionSpeed={60}
           repeat={Infinity}
-        />
+        /> */}
+        <p className="bubble-text">
+          I`m a 22-year-old Web Developer. I`ve been programming for{" "}
+          <span>3</span> years. I like creating complex web applications and
+          continuously learning new stuff.
+        </p>
       </div>
       <img src="/man.png" alt="" />
     </motion.div>

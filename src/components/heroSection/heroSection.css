@@ -50,11 +50,32 @@
 
 .heroTitle {
   font-size: 100px;
+  font-weight: 700;
   color: var(--text-emphasis);
 }
 
 .heroTitle span {
   color: var(--text-primary);
+}
+
+.location-container {
+  margin: 10px 0;
+  color: var(--text-secondary);
+}
+
+.location-container span {
+  margin: 0 0 0 6px;
+}
+
+.location-container svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--text-secondary);
+}
+
+.stack-text {
+  color: var(--text-secondary);
+  margin: 8px 0;
 }
 
 .awardsSkeleton,
@@ -63,9 +84,9 @@
 }
 
 .awards p {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin: 16px 0;
+  /* font-size: 14px; */
+  /* color: var(--text-secondary); */
+  /* margin: 16px 0; */
 }
 
 .awardList,
@@ -85,6 +106,9 @@
 .scroll {
   margin-bottom: 50px;
   width: max-content;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 .heroSection.right,
@@ -98,15 +122,15 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 16px;
+  padding: 12px;
   background-color: var(--follow-container);
   border-bottom-right-radius: 10px;
 }
 
-.follow img {
+/* .follow img {
   width: 20px;
   height: 20px;
-}
+} */
 
 .followTextContainer {
   width: 20px;
@@ -120,11 +144,35 @@
   transform-origin: left top;
   width: max-content;
   height: 100%;
-  transform: translateY(-20px);
+  transform: translateY(-22px);
   padding: 0 8px;
   display: flex;
   align-items: center;
   border-bottom-right-radius: 10px;
+}
+
+.email-icon,
+.linkedin-icon,
+.github-icon {
+  transition: all 0.3s ease-in-out;
+}
+
+.email-icon:hover,
+.linkedin-icon:hover,
+.github-icon:hover {
+  color: var(--text-emphasis);
+}
+
+.email-icon {
+  color: var(--text-secondary);
+}
+
+.linkedin-icon {
+  color: #0e76a8;
+}
+
+.github-icon {
+  color: var(--text-secondary);
 }
 
 .bubbleContainer,
@@ -140,10 +188,18 @@
   width: 100%;
   height: 100px;
   background-color: white;
-  color: #555;
-  padding: 24px;
-  font-size: 18px;
+  padding: 10px;
   border-radius: 20px 20px 0px 20px;
+}
+
+.bubble-text {
+  font-size: 16px;
+  color: #2f204e;
+  text-align: justify;
+}
+
+.bubble-text span {
+  color: var(--text-emphasis);
 }
 
 .bubbleContainer img {
@@ -155,11 +211,32 @@
 }
 
 .certificateSkeletonContainer,
-.certificate {
+.resume {
   width: 60%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  /* gap: 8px; */
+}
+
+.resume button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 14px;
+  transition: color 0.3s ease-in-out;
+}
+
+.download-svg {
+  transition: all 0.3s ease-in-out;
+  fill: var(--text-secondary);
+}
+
+.resume button:hover {
+  color: var(--text-emphasis);
+}
+.resume button:hover .download-svg {
+  fill: var(--text-emphasis);
 }
 
 .certificateSkeletonContainer {
@@ -167,7 +244,7 @@
   align-items: center;
 }
 
-.certificate {
+.resume {
   text-align: center;
   line-height: 24px;
   font-weight: 300;
@@ -175,9 +252,13 @@
   align-items: center;
 }
 
-.certificate img {
+.resume img {
   width: 70px;
   height: 70px;
+}
+
+.contactLink {
+  cursor: pointer;
 }
 
 .contactLinkContainer {
@@ -336,7 +417,7 @@
 
   .follow,
   .bubbleContainer,
-  .certificate {
+  .resume {
     display: none;
   }
 
