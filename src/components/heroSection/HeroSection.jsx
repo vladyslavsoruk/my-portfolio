@@ -60,6 +60,31 @@ function HeroSection() {
         <DarkMode />
 
         <motion.div
+          variants={followVariants}
+          initial="initial"
+          animate="animate"
+          className="follow-in-small-screen"
+        >
+          <motion.a variants={followVariants} href="#">
+            {/* <img src="/instagram.png" alt="" /> */}
+            <EmailSVG className="email-icon" />
+          </motion.a>
+          <motion.a variants={followVariants} href="#">
+            {/* <img src="/facebook.png" alt="" /> */}
+            <LinkedinSVG className="linkedin-icon" />
+          </motion.a>
+          <motion.a variants={followVariants} href="#">
+            {/* <img src="/youtube.png" alt="" /> */}
+            <GithubSVG className="github-icon" />
+          </motion.a>
+          <motion.div variants={followVariants} className="followTextContainer">
+            <div className="followText">
+              CONTACT{"\u00A0\u00A0"}ME{"\u00A0\u00A0"}•
+            </div>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
@@ -479,7 +504,10 @@ function HeroSection() {
           animate={{ opacity: [0, 1] }}
           transition={{ duration: 1.5 }}
         >
-          <img src="/resume.png" alt="" />
+          <img
+            src={theme === "dark" ? "/resume-white.png" : "/resume-black.png"}
+            alt=""
+          />
           <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
             Download CV <DownloadSVG className="download-svg" />
           </motion.button>

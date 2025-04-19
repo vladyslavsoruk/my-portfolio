@@ -11,7 +11,7 @@ body[data-theme="light"] {
     inset 2px 2px 6px #b0eaee, inset -2px -2px 6px #b1c7e9;
   --service-background: #caa7f1;
   --service-active: #b0d598;
-  --contact-section-emphasis: #6c63ff;
+  --form-input-focus: #6c63ff;
 }
 
 body[data-theme="dark"] {
@@ -26,6 +26,7 @@ body[data-theme="dark"] {
     inset 2px 2px 6px #d37e7e, inset -2px -2px 6px #d27d84;
   --service-background: #2f213f;
   --service-active: #50396a;
+  --form-input-focus: pink;
 }
 
 * {

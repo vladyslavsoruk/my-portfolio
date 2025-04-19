@@ -1,9 +1,9 @@
-.dark_mode {
+.dark-mode {
   margin-top: 20px;
   /* margin-left: 10px; */
 }
 
-.dark_mode_label {
+.dark-mode-label {
   width: 65px;
   height: 30px;
   position: relative;
@@ -18,7 +18,7 @@
   transition: 0.3s;
 }
 
-.dark_mode_label:after {
+.dark-mode-label:after {
   content: "";
   width: 25px;
   height: 25px;
@@ -31,49 +31,49 @@
   transition: 0.3s;
 }
 
-.dark_mode_input {
+.dark-mode_input {
   width: 0;
   height: 0;
   visibility: hidden;
 }
 
-.dark_mode_input:checked + .dark_mode_label {
+.dark-mode_input:checked + .dark-mode-label {
   background: #242424;
 }
 
-.dark_mode_input:checked + .dark_mode_label:after {
+.dark-mode_input:checked + .dark-mode-label:after {
   left: 62px;
   transform: translateX(-100%);
   background: linear-gradient(0deg, #777, #3a3a3a);
 }
 
-.dark_mode_label:active:after {
+.dark-mode-label:active:after {
   width: 30px;
 }
 
-.dark_mode_label svg {
+.dark-mode-label svg {
   position: absolute;
   width: 20px;
   top: 5px;
   z-index: 100;
 }
 
-.dark_mode_label svg.sun {
+.dark-mode-label svg.sun {
   left: 5px;
   fill: #fff;
   transition: 0.3s;
 }
 
-.dark_mode_label svg.moon {
+.dark-mode-label svg.moon {
   left: 40px;
   fill: #7e7e7e;
   transition: 0.3s;
 }
 
-.dark_mode_input:checked + .dark_mode_label svg.sun {
+.dark-mode_input:checked + .dark-mode-label svg.sun {
   fill: #7e7e7e;
 }
 
-.dark_mode_input:checked + .dark_mode_label svg.moon {
+.dark-mode_input:checked + .dark-mode-label svg.moon {
   fill: #fff;
 }

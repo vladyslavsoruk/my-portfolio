@@ -23,15 +23,15 @@ const DarkMode = () => {
   }
 
   return (
-    <div className="dark_mode">
+    <div className="dark-mode">
       <input
-        className="dark_mode_input"
+        className="dark-mode_input"
         type="checkbox"
         id="darkmode-toggle"
         onChange={toggleTheme}
         defaultChecked={theme === "dark" ? true : false}
       />
-      <label className="dark_mode_label" htmlFor="darkmode-toggle">
+      <label className="dark-mode-label" htmlFor="darkmode-toggle">
         <Sun />
         <Moon />
       </label>

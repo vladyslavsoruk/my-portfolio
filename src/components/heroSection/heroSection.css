@@ -118,13 +118,19 @@
   align-items: end;
 }
 
-.follow {
+.follow,
+.follow-in-small-screen {
   display: flex;
   flex-direction: column;
   gap: 12px;
   padding: 12px;
   background-color: var(--follow-container);
   border-bottom-right-radius: 10px;
+}
+
+.follow-in-small-screen {
+  display: none;
+  flex-direction: row;
 }
 
 /* .follow img {
@@ -138,7 +144,9 @@
 }
 
 .followText {
-  background-color: var(--follow-text);
+  /* background-color: var(--follow-text); */
+  background-color: #dd4c62;
+  color: white;
   font-size: 12px;
   rotate: 90deg;
   transform-origin: left top;
@@ -203,11 +211,13 @@
 }
 
 .bubbleContainer img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: 7px 2px;
   background-color: #dd4c62;
+  /* margin-top: 5px; */
 }
 
 .certificateSkeletonContainer,
@@ -352,6 +362,10 @@
   .heroTitle {
     font-size: 72px;
   }
+  .bubbleContainer,
+  .bubbleSkeletonContainer {
+    width: 65%;
+  }
 }
 
 @media (max-width: 1280px) {
@@ -365,7 +379,7 @@
   }
   .bubbleContainer,
   .bubbleSkeletonContainer {
-    width: 100%;
+    width: 80%;
   }
   .awards,
   .awardsSkeleton {
@@ -378,7 +392,11 @@
     height: 50%;
   }
   .heroTitle {
-    font-size: 61px;
+    font-size: 50px;
+  }
+  .bubbleContainer,
+  .bubbleSkeletonContainer {
+    width: 100%;
   }
 }
 
@@ -386,21 +404,34 @@
   .hero,
   .heroSkeleton {
     flex-direction: column;
+    gap: 30px;
   }
-  .bg {
+
+  .dark-mode {
+    margin: 0 !important;
+  }
+  /* .bg {
     height: 60%;
-  }
+  } */
   .heroSection.left,
+  .heroSection.right,
   .heroSectionSkeleton.leftSkeleton {
     /* flex: 1 1 50%; */
     height: 50%;
     align-items: center;
     text-align: center;
-    gap: 36px;
+    gap: 30px;
+  }
+
+  .heroSection.right,
+  .heroSectionSkeleton.rightSkeleton {
+    /* flex: 1 1 50%; */
+    justify-content: end;
   }
 
   .heroTitle {
     font-size: 48px;
+    margin: 0;
   }
   .heroTitleSkeleton span {
     width: 220px !important;
@@ -415,17 +446,24 @@
     justify-content: center;
   }
 
-  .follow,
+  /* .follow,
   .bubbleContainer,
-  .resume {
+  .resume,
+  .bg {
+    display: none;
+  } */
+  .follow,
+  .bg {
     display: none;
   }
 
-  .heroSection.right,
-  .heroSectionSkeleton.rightSkeleton {
-    /* flex: 1 1 50%; */
-    height: 50%;
-    justify-content: end;
+  .bubbleContainer,
+  .bubbleSkeletonContainer {
+    width: 80%;
+  }
+  .bubbleContainer,
+  .bubbleSkeletonContainer {
+    max-width: 400px;
   }
 
   .followSkeletonContainer {
@@ -434,5 +472,29 @@
 
   .bubbleSkeletonContainer {
     display: none;
+  }
+
+  .contactLinkContainer {
+    /* margin: 0; */
+    align-self: end;
+  }
+
+  .scroll {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    margin: auto;
+  }
+
+  .follow-in-small-screen {
+    display: flex;
+    padding: 8px 12px 5px 12px;
+  }
+
+  .followText {
+    font-size: 12px;
+    rotate: 0deg;
+    transform: translateY(2px);
   }
 }
