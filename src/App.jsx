@@ -49,7 +49,7 @@ function App() {
             {serviceIsInView && <ServicesSection />}
           </Suspense>
         </section>
-        <div ref={portfolioRef}>
+        {/* <div ref={portfolioRef}>
           <Suspense fallback={"loading PortfolioSection..."}>
             {portfolioIsInView && <PortfolioSection />}
           </Suspense>
@@ -58,7 +58,7 @@ function App() {
           <Suspense fallback={"loading ContactSection..."}>
             {contactIsInView && <ContactSection />}
           </Suspense>
-        </section>
+        </section> */}
       </div>
     </ThemeProvider>
   );

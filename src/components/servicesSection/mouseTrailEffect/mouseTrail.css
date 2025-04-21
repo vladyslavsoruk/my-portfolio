@@ -1,7 +1,9 @@
 .mouse-trail-area {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   cursor: none;
+  /* Allow scroll if techStackList is too big */
+  overflow-x: scroll;
   /* padding: 50px 0px; */
 }
 

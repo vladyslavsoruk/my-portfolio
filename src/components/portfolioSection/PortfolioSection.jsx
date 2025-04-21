@@ -118,15 +118,18 @@ function PortfolioSection() {
       setContainerDistance(rect.left);
       console.log("RECT:", rect);
       console.log("REACT LEFT:", rect.left);
-      console.log("window.innerWidth:", window.innerWidth);
-      console.log(-window.innerWidth * items.length);
+      console.log(
+        "document.documentElement.clientWidth:",
+        document.documentElement.clientWidth
+      );
+      console.log(-document.documentElement.clientWidth * items.length);
     }
   }, []);
 
   const translateX = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, -window.innerWidth * items.length]
+    [0, -document.documentElement.clientWidth * items.length]
   );
 
   return (
@@ -134,7 +137,7 @@ function PortfolioSection() {
       <motion.div className="pList" style={{ x: translateX }}>
         <div
           style={{
-            width: window.innerWidth - containerDistance,
+            width: document.documentElement.clientWidth - containerDistance,
             // background: "green",
           }}
         ></div>
