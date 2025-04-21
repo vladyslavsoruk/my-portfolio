@@ -2,9 +2,10 @@ import "./servicesSection.css";
 import { useRef, useState } from "react";
 import Counter from "./Counter";
 import { motion, useInView } from "motion/react";
-import ComputerModelContainer from "./computer/ComputerModelContainer";
+import ComputerModelContainer from "../heroSection/computer/ComputerModelContainer";
 import PlaystationModelContainer from "./playstation/PlaystationModelContainer";
 import MugModelContainer from "./mug/MugModelContainer";
+import MouseTrailArea from "./mouseTrailEffect/MouseTrailArea";
 
 const textVariants = {
   initial: {
@@ -40,21 +41,21 @@ const listVariants = {
 const services = [
   {
     id: 1,
-    img: "/service1.png",
+    img: "/frontend-white.png",
     counter: 35,
-    title: "Web Development",
+    title: "Frontend",
   },
   {
     id: 2,
-    img: "/service2.png",
+    img: "/backend-white.png",
     counter: 15,
-    title: "Product Design",
+    title: "Backend",
   },
   {
     id: 3,
-    img: "/service3.png",
+    img: "/other-instruments-white.png",
     counter: 115,
-    title: "Branding",
+    title: "Other instruments",
   },
 ];
 
@@ -72,7 +73,7 @@ function ServicesSection() {
           animate={isInView ? "animate" : "initial"}
           className="sTitle"
         >
-          How do I help?
+          What I work with
         </motion.h1>
         <motion.div
           variants={listVariants}
@@ -97,18 +98,71 @@ function ServicesSection() {
           ))}
         </motion.div>
         <div className="counterList">
-          <Counter from={0} to={122} text="Projects Completed" />
-          <Counter from={0} to={99} text="Happy Clients" />
+          <Counter from={0} to={3} text="Years of experience" />
         </div>
       </div>
       <div className="sSection right">
         {currentServiceId === 1 ? (
-          <ComputerModelContainer />
+          // <ComputerModelContainer />
+
+          <div className="techStackContainer">
+            <MouseTrailArea>
+              <div className="techStackList">
+                <motion.h2 whileHover={{ scale: 1.1 }}>HTML</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>CSS</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>JavaScript</motion.h2>
+              </div>
+              <div className="techStackList">
+                <motion.h2 whileHover={{ scale: 1.1 }}>React</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>TypeScript</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>Vite</motion.h2>
+              </div>
+              <div className="techStackList">
+                <motion.h2 whileHover={{ scale: 1.1 }}>Next</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>Tailwind</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>MUI</motion.h2>
+              </div>
+            </MouseTrailArea>
+          </div>
         ) : currentServiceId === 2 ? (
-          <PlaystationModelContainer />
+          <div className="techStackContainer">
+            <MouseTrailArea>
+              <div className="techStackList">
+                <motion.h2 whileHover={{ scale: 1.1 }}>Spring</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>Python</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>.NET</motion.h2>
+              </div>
+              <div className="techStackList">
+                <motion.h2 whileHover={{ scale: 1.1 }}>MongoDB</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>PostgreSQL</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>MySQL</motion.h2>
+              </div>
+              <div className="techStackList">
+                <motion.h2 whileHover={{ scale: 1.1 }}>NestJS</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>Node js</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>Express</motion.h2>
+              </div>
+              <div className="techStackList">
+                <motion.h2 whileHover={{ scale: 1.1 }}>Docker</motion.h2>
+              </div>
+            </MouseTrailArea>
+          </div>
         ) : (
-          <MugModelContainer />
+          <div className="techStackContainer">
+            <MouseTrailArea>
+              <div className="techStackList">
+                <motion.h2 whileHover={{ scale: 1.1 }}>Git</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>Vercel</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>AWS</motion.h2>
+                <motion.h2 whileHover={{ scale: 1.1 }}>Jest</motion.h2>
+              </div>
+            </MouseTrailArea>
+          </div>
         )}
+
+        <div className="counterList-on-small-screen">
+          <Counter from={0} to={3} text="Years of experience" />
+        </div>
       </div>
     </div>
   );

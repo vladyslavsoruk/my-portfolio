@@ -2,6 +2,7 @@
   height: 100%;
   overflow: hidden;
   display: flex;
+  gap: 16px;
 }
 
 .sSection {
@@ -11,9 +12,31 @@
   justify-content: center;
 }
 
+.techStackContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* user-select: none; */
+}
+
+.techStackList {
+  display: flex;
+  flex-direction: row;
+  /* gap: 16px; */
+  justify-content: center;
+}
+
+.techStackList h2 {
+  font-size: 34px;
+  /* font-size: 24px; */
+  padding: 16px;
+}
+
 .sTitle {
-  font-size: 88px;
+  font-size: 78px;
   margin-bottom: 24px;
+  text-align: start;
 }
 
 .serviceList {
@@ -58,7 +81,7 @@
 .serviceInfo h2 {
   font-size: 18px;
   font-weight: 500;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
 }
 
 .serviceInfo h3 {
@@ -67,23 +90,28 @@
 }
 
 .service:nth-child(1) .serviceIcon {
-  background-color: #dd4c62;
+  background-color: #025656;
 }
 
 .service:nth-child(2) .serviceIcon {
-  background-color: #025656;
+  background-color: #dd4c62;
 }
 
 .service:nth-child(3) .serviceIcon {
   background-color: #6c5c0c;
 }
 
-.counterList {
+.counterList,
+.counterList-on-small-screen {
   width: 50%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 24px;
+}
+
+.counterList-on-small-screen {
+  display: none;
 }
 
 .counter {
@@ -105,15 +133,27 @@
   .service,
   .counterList {
     width: 70%;
+    align-self: center;
+  }
+
+  .sTitle {
+    text-align: center;
+    font-size: 68px;
+  }
+  .techStackList h2 {
+    font-size: 28px;
   }
 }
 
 @media (max-width: 1280px) {
-  .sTitle {
-    font-size: 128px;
-  }
   .service {
     width: 100%;
+  }
+  .sTitle {
+    text-align: start;
+  }
+  .counterList {
+    align-self: start;
   }
 }
 
@@ -124,17 +164,56 @@
   .counterList {
     width: 100%;
   }
+  .techStackList h2 {
+    font-size: 21px;
+  }
 }
 
 @media (max-width: 768px) {
   .services {
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: 0;
+  }
+  .services * {
+    margin: 0;
   }
   .sSection {
     width: 100%;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .sSection.left {
+    height: 40%;
   }
   .sSection.right {
+    height: 60%;
+  }
+  .serviceList {
+    flex-flow: row wrap;
+  }
+  .service {
+    padding: 10px 20px;
+    flex: 1 1 33.33%;
+    justify-content: center;
+  }
+  .counterList {
     display: none;
+  }
+  .counterList-on-small-screen {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .techStackList h2 {
+    font-size: 30px;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 620px) {
+  .techStackList h2 {
+    font-size: 26px;
+    padding: 20px;
   }
 }

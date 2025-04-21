@@ -6,8 +6,8 @@ function Shape() {
         <MeshDistortMaterial
           color="#DB8B9B"
           attach="material"
-          distort={0.4}
-          speed={2}
+          distort={0.3}
+          speed={1}
         />
       </Sphere>
       <ambientLight intensity={1} />

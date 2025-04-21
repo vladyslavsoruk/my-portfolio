@@ -6,11 +6,12 @@ import Shape from "./Shape";
 import { Suspense, useContext } from "react";
 import DarkMode from "../lightDarkThemeToggle/DarkMode";
 import { ThemeContext } from "../../providers/ThemeProvider";
-import LocationSVG from "../../../public/location-sign.svg?react";
-import DownloadSVG from "../../../public//download-icon.svg?react";
-import EmailSVG from "../../../public//email-icon.svg?react";
-import LinkedinSVG from "../../../public//linkedin-icon.svg?react";
-import GithubSVG from "../../../public//github-icon.svg?react";
+import LocationSVG from "./svgs/location-sign.svg?react";
+import DownloadSVG from "./svgs/download-icon.svg?react";
+import EmailSVG from "./svgs/email-icon.svg?react";
+import LinkedinSVG from "./svgs/linkedin-icon.svg?react";
+import GithubSVG from "./svgs/github-icon.svg?react";
+import ComputerModelContainer from "./computer/ComputerModelContainer";
 
 const awardVariants = {
   initial: {
@@ -65,15 +66,23 @@ function HeroSection() {
           animate="animate"
           className="follow-in-small-screen"
         >
-          <motion.a variants={followVariants} href="#">
+          <motion.a variants={followVariants} href="mailto:sorukv@gmail.com">
             {/* <img src="/instagram.png" alt="" /> */}
             <EmailSVG className="email-icon" />
           </motion.a>
-          <motion.a variants={followVariants} href="#">
+          <motion.a
+            variants={followVariants}
+            href="https://www.linkedin.com/in/vladyslav-soruk"
+            target="_blank"
+          >
             {/* <img src="/facebook.png" alt="" /> */}
             <LinkedinSVG className="linkedin-icon" />
           </motion.a>
-          <motion.a variants={followVariants} href="#">
+          <motion.a
+            variants={followVariants}
+            href="https://github.com/vladyslavsoruk"
+            target="_blank"
+          >
             {/* <img src="/youtube.png" alt="" /> */}
             <GithubSVG className="github-icon" />
           </motion.a>
@@ -480,15 +489,27 @@ function HeroSection() {
           animate="animate"
           className="follow"
         >
-          <motion.a variants={followVariants} href="#">
+          <motion.a
+            variants={followVariants}
+            href="mailto:sorukv@gmail.com"
+            target="_blank"
+          >
             {/* <img src="/instagram.png" alt="" /> */}
             <EmailSVG className="email-icon" />
           </motion.a>
-          <motion.a variants={followVariants} href="#">
+          <motion.a
+            variants={followVariants}
+            href="https://www.linkedin.com/in/vladyslav-soruk"
+            target="_blank"
+          >
             {/* <img src="/facebook.png" alt="" /> */}
             <LinkedinSVG className="linkedin-icon" />
           </motion.a>
-          <motion.a variants={followVariants} href="#">
+          <motion.a
+            variants={followVariants}
+            href="https://github.com/vladyslavsoruk"
+            target="_blank"
+          >
             {/* <img src="/youtube.png" alt="" /> */}
             <GithubSVG className="github-icon" />
           </motion.a>
@@ -563,13 +584,14 @@ function HeroSection() {
         </motion.div>
       </div>
       <div className="bg">
-        <Canvas>
+        {/* <Canvas>
           <Suspense fallback="loading...">
             <Shape />
           </Suspense>
-        </Canvas>
-        <div className="heroImg">
-          <img src="/hero.png" alt="" />
+        </Canvas> */}
+        <div className="computer-model">
+          {/* <img src="/hero.png" alt="" /> */}
+          {/* <ComputerModelContainer /> */}
         </div>
       </div>
     </div>

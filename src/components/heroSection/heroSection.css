@@ -15,21 +15,33 @@
   z-index: -1;
 }
 
-.heroImg {
+/* .computer-model {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  top: 0;
   margin: auto;
-  height: 80%;
-  width: max-content;
+  height: 100%;
+  z-index: 222;
+} */
+
+.computer-model img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+  height: 100%;
+  width: 100%; /* Замените max-content */
+  pointer-events: auto; /* Разрешить события мыши */
+  z-index: 1; /* Убедитесь, что Canvas выше фона */
 }
 
-.heroImg img {
+/* .computer-model img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
+} */
 
 .heroSection,
 .heroSectionSkeleton {
@@ -496,5 +508,67 @@
     font-size: 12px;
     rotate: 0deg;
     transform: translateY(2px);
+  }
+}
+
+@media (max-width: 450px) {
+  .heroTitle {
+    font-size: 36px;
+  }
+  .heroTitle svg {
+    width: 55px;
+  }
+  .bubbleContainer,
+  .bubbleSkeletonContainer {
+    width: 100%;
+  }
+  .bubble {
+    height: auto;
+  }
+  .bubble-text {
+    font-size: 14px;
+  }
+  .resume img {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media (max-width: 400px) {
+  .hero {
+    gap: 15px;
+  }
+
+  .resume {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .resume img {
+    width: 35px;
+    height: 35px;
+  }
+  .contactLinkContainer {
+    margin: 0 8px 12px 0;
+  }
+  .contactLinkContainer svg {
+    width: 100px;
+    height: 100px;
+  }
+  .arrow svg {
+    width: 30px;
+    height: 30px;
+  }
+  .scroll svg {
+    width: 35px;
+    height: 35px;
+  }
+  .heroSection.left {
+    flex: 1 1 60%;
+    gap: unset;
+  }
+  .heroSection.right {
+    flex: 1 1 40%;
+    gap: unset;
+    justify-content: space-between;
   }
 }

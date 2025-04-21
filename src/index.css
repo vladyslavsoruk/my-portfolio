@@ -9,8 +9,8 @@ body[data-theme="light"] {
   --wave-btn-background: rgb(174, 229, 247);
   --wave-btn-box-shadow: 2px 2px 4px #b0eaee, -2px -2px 4px #b1c7e9,
     inset 2px 2px 6px #b0eaee, inset -2px -2px 6px #b1c7e9;
-  --service-background: #caa7f1;
-  --service-active: #b0d598;
+  --service-background: #d2e4f1;
+  --service-active: rgb(174, 229, 247);
   --form-input-focus: #6c63ff;
 }
 
@@ -39,6 +39,9 @@ body[data-theme="dark"] {
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+
+  /* Prevent scroll bar from showing up because of PortfolioSection width */
+  overflow-x: hidden;
 }
 
 body {

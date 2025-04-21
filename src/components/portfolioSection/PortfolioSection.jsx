@@ -69,7 +69,7 @@ const descVariants = {
     transition: {
       duration: 0.5,
       ease: "easeInOut",
-      staggerChildren: 0.05,
+      staggerChildren: 0.1,
     },
   },
 };
@@ -116,6 +116,10 @@ function PortfolioSection() {
     if (ref.current) {
       const rect = ref.current.getBoundingClientRect();
       setContainerDistance(rect.left);
+      console.log("RECT:", rect);
+      console.log("REACT LEFT:", rect.left);
+      console.log("window.innerWidth:", window.innerWidth);
+      console.log(-window.innerWidth * items.length);
     }
   }, []);
 
