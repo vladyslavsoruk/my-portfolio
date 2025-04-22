@@ -1,8 +1,11 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import "./contactSection.css";
 import emailjs from "@emailjs/browser";
 import { motion, useInView } from "motion/react";
 import ContactSvg from "./ContactSvg";
+import { ToastContainer, toast } from "react-toastify";
+import { ThemeContext } from "../../providers/ThemeProvider";
+// import "react-toastify/dist/ReactToastify.css";
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
@@ -37,11 +40,13 @@ const loadingIndicators = {
 };
 
 function ContactSection() {
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
+  // const [success, setSuccess] = useState(false);
+  // const [error, setError] = useState(false);
   const [emailIsSending, setEmailIsSending] = useState(false);
   const formRef = useRef();
   const formIsInView = useInView(formRef, { margin: "-100px" });
+
+  const [theme, setTheme] = useContext(ThemeContext);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -53,14 +58,16 @@ function ContactSection() {
       })
       .then(
         () => {
-          setSuccess(true);
-          setError(false);
+          // setSuccess(true);
+          // setError(false);
           setEmailIsSending(false);
+          toast("Your message has been sent successfully !");
         },
         (error) => {
-          setSuccess(false);
-          setError(true);
+          // setSuccess(false);
+          // setError(true);
           setEmailIsSending(false);
+          toast("Something went wrong :(");
         }
       );
   };
@@ -83,7 +90,7 @@ function ContactSection() {
               height="60px"
               viewBox="0 0 80 80"
               fill="none"
-              style={{ position: "relative", top: "25px" }}
+              // style={{ position: "relative", top: "25px" }}
             >
               <path
                 d="M50.0022 56.0284C49.9599 57.2183 47.5764 58.8073 44.0912 58.8073C40.6061 58.8073 24.6773 52.574 20.7162 46.4136C15.4693 38.2534 10.042 35.962 7.04426 34.1541C4.04658 32.3463 8.05757 21.8947 12.0724 18.851C16.0872 15.8072 17.7185 21.319 22.4818 20.0869C27.2451 18.8548 35.578 19.8681 38.8865 20.9236C42.1951 21.983 64.8639 35.8737 64.6874 40.944C64.5108 46.0144 63.6741 48.3097 60.0124 48.398C60.0124 48.398 60.4538 52.3667 55.1186 52.455C55.1186 52.4589 55.0533 56.869 50.0022 56.0284Z"
@@ -484,11 +491,24 @@ function ContactSection() {
           {/* <img src="/underline-sketch.png" /> */}
           <motion.div variants={listVariants} className="formItem">
             <label>Name</label>
-            <input type="text" placeholder="John Doe" name="name" />
+            <input
+              type="text"
+              placeholder="John Doe"
+              name="name"
+              required
+              minLength="3"
+              maxLength="50"
+            />
           </motion.div>
           <motion.div variants={listVariants} className="formItem">
             <label>Email</label>
-            <input type="Email" placeholder="john@gmail.com" />
+            <input
+              type="Email"
+              placeholder="john@gmail.com"
+              name="sender-email"
+              required
+              maxLength="50"
+            />
           </motion.div>
           <motion.div variants={listVariants} className="formItem">
             <label>Message</label>
@@ -496,6 +516,9 @@ function ContactSection() {
               rows={10}
               placeholder="Write your message here..."
               name="message"
+              required
+              minLength="5"
+              maxLength="500"
             ></textarea>
           </motion.div>
           <motion.button variants={listVariants} className="formButton">
@@ -513,18 +536,19 @@ function ContactSection() {
               </motion.div>
             )}
           </motion.button>
-          {success && (
+          {/* {success && (
             <span className="emailSuccessMessage">
-              Your message has been sent successfully!
+              Your message has been sent successfully !
             </span>
           )}
           {error && (
-            <span className="emailFailMessage">Something went wrong!</span>
-          )}
+            <span className="emailFailMessage">Something went wrong :(</span>
+          )} */}
         </motion.form>
       </div>
       <div className="cSection">
         <ContactSvg />
+        <ToastContainer position="top-center" theme={theme} />
       </div>
     </div>
   );

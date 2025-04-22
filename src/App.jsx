@@ -38,8 +38,7 @@ function App() {
   return (
     <ThemeProvider>
       <div className="container">
-        <section id="hero" ref={heroRef}>
-          {/* <HeroSectionSkeleton /> */}
+        {/* <section id="hero" ref={heroRef}>
           <Suspense fallback={<HeroSectionSkeleton />}>
             {heroIsInView && <HeroSection />}
           </Suspense>
@@ -48,7 +47,19 @@ function App() {
           <Suspense fallback={"loading ServicesSection..."}>
             {serviceIsInView && <ServicesSection />}
           </Suspense>
+        </section> */}
+
+        {/* <PortfolioSection /> */}
+        {/* <section id="contact" ref={contactRef}>
+          <ContactSection />
+        </section> */}
+
+        <section id="contact" ref={contactRef}>
+          <Suspense fallback={"loading ContactSection..."}>
+            {contactIsInView && <ContactSection />}
+          </Suspense>
         </section>
+
         {/* <div ref={portfolioRef}>
           <Suspense fallback={"loading PortfolioSection..."}>
             {portfolioIsInView && <PortfolioSection />}

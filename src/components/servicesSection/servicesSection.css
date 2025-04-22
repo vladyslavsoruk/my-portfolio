@@ -224,7 +224,7 @@
   }
   .service {
     padding: 8px;
-    /* justify-content: center; */
+    gap: 8px;
   }
   .serviceIcon {
     width: 36px;
@@ -244,15 +244,4 @@
   .counter h1 {
     font-size: 36px;
   }
-  /* .service {
-    padding: 10px 20px;
-    flex: 1 1 50%;
-    justify-content: center;
-  }
-  .service:nth-child(2) {
-    display: none;
-  }
-  .service:nth-child(3) {
-    display: none;
-  } */
 }

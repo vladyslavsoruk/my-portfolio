@@ -17,6 +17,15 @@
   position: relative;
   letter-spacing: 1px;
   margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.cTitle svg {
+  position: absolute;
+  top: -25px;
+  width: 80px;
+  height: 80px;
+  z-index: 1;
 }
 
 .cTitle::after {
@@ -34,10 +43,10 @@
 }
 
 body[data-theme="light"] .cTitle::after {
-  background-image: url("/public/underline-sketch-blue.png");
+  background-image: url("/underline-sketch-blue.png");
 }
 body[data-theme="dark"] .cTitle::after {
-  background-image: url("/public/underline-sketch-pink.png");
+  background-image: url("/underline-sketch-pink.png");
 }
 
 form {
@@ -52,6 +61,7 @@ textarea {
   padding: 12px;
   border: none;
   border-radius: 5px;
+  color: #2f204e;
 }
 
 input:focus,
@@ -72,6 +82,7 @@ textarea:focus {
 
 label {
   font-size: 13px;
+  color: var(--text-secondary);
 }
 
 .formButton {
@@ -83,7 +94,7 @@ label {
   cursor: pointer;
 }
 
-.emailSuccessMessage,
+/* .emailSuccessMessage,
 .emailFailMessage {
   color: rgb(46, 197, 46);
   text-align: center;
@@ -92,7 +103,7 @@ label {
 }
 .emailFailMessage {
   color: red;
-}
+} */
 
 @media (max-width: 1280px) {
   form {
@@ -103,6 +114,11 @@ label {
 @media (max-width: 1024px) {
   .contacts {
     gap: 20px;
+  }
+  .cTitle svg {
+    width: 60px;
+    height: 60px;
+    top: -15px;
   }
 }
 
@@ -122,5 +138,41 @@ label {
   }
   .cSection:last-child {
     height: 30%;
+    z-index: -1;
+  }
+}
+@media (max-width: 450px) {
+  .contacts {
+    gap: 20px;
+  }
+  .cSection {
+    padding: 0px;
+  }
+  .cSection:first-child {
+    height: auto;
+  }
+  .cSection:last-child {
+    height: 25%;
+  }
+  .cTitle {
+    font-size: 20px;
+  }
+  .cTitle svg {
+    width: 50px;
+  }
+  form {
+    width: 90%;
+    height: 100%;
+  }
+  input,
+  textarea {
+    padding: 8px;
+  }
+  .formItem textarea {
+    height: auto;
+    max-height: 100px;
+  }
+  .formButton {
+    padding: 15px 10px;
   }
 }
