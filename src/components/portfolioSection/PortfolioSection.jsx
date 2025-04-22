@@ -108,6 +108,7 @@ const ListItem = ({ item }) => {
 function PortfolioSection() {
   const [containerDistance, setContainerDistance] = useState(0);
   const ref = useRef(null);
+  const [PListWidth, setPListWidth] = useState(0);
   const { scrollYProgress } = useScroll({ target: ref });
 
   const portfolioSectionIsInView = useInView(ref, { margin: "-300px" });
@@ -122,7 +123,25 @@ function PortfolioSection() {
         "document.documentElement.clientWidth:",
         document.documentElement.clientWidth
       );
-      console.log(-document.documentElement.clientWidth * items.length);
+      console.log(
+        "document.documentElement.clientWidth * items.length",
+        -document.documentElement.clientWidth * items.length
+      );
+      console.log(
+        "document.documentElement.clientWidth - rect.left",
+        document.documentElement.clientWidth - rect.left
+      );
+      console.log(
+        ".pList width",
+        document.documentElement.clientWidth * items.length +
+          document.documentElement.clientWidth -
+          rect.left
+      );
+      setPListWidth(
+        document.documentElement.clientWidth * items.length +
+          document.documentElement.clientWidth -
+          rect.left
+      );
     }
   }, []);
 

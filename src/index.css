@@ -12,6 +12,7 @@ body[data-theme="light"] {
   --service-background: #d2e4f1;
   --service-active: rgb(174, 229, 247);
   --form-input-focus: #6c63ff;
+  --linear-progress-bar-root: #c2def1;
 }
 
 body[data-theme="dark"] {
@@ -27,6 +28,7 @@ body[data-theme="dark"] {
   --service-background: #2f213f;
   --service-active: #50396a;
   --form-input-focus: pink;
+  --linear-progress-bar-root: white;
 }
 
 * {
@@ -86,6 +88,16 @@ a {
 section {
   height: 100vh;
   scroll-snap-align: center;
+}
+
+.MuiLinearProgress-root {
+  top: 30px;
+  border-radius: 10px;
+  height: 8px !important;
+  background-color: var(--linear-progress-bar-root) !important;
+}
+.MuiLinearProgress-bar {
+  background-color: var(--text-emphasis) !important;
 }
 
 @media (min-width: 640px) {

@@ -2,6 +2,7 @@ import { useInView } from "motion/react";
 import { lazy, Suspense, useRef } from "react";
 import HeroSectionSkeleton from "./components/heroSection/HeroSectionSkeleton";
 import { ThemeProvider } from "./providers/ThemeProvider";
+import { LinearProgress } from "@mui/material";
 
 const HeroSection = lazy(() => import("./components/heroSection/HeroSection"));
 const PortfolioSection = lazy(() =>
@@ -38,38 +39,26 @@ function App() {
   return (
     <ThemeProvider>
       <div className="container">
-        {/* <section id="hero" ref={heroRef}>
-          <Suspense fallback={<HeroSectionSkeleton />}>
+        <section id="hero" ref={heroRef}>
+          <Suspense fallback={<LinearProgress />}>
             {heroIsInView && <HeroSection />}
           </Suspense>
         </section>
         <section id="services" ref={serviceRef}>
-          <Suspense fallback={"loading ServicesSection..."}>
+          <Suspense fallback={<LinearProgress />}>
             {serviceIsInView && <ServicesSection />}
           </Suspense>
-        </section> */}
-
-        {/* <PortfolioSection /> */}
-        {/* <section id="contact" ref={contactRef}>
-          <ContactSection />
-        </section> */}
-
-        <section id="contact" ref={contactRef}>
-          <Suspense fallback={"loading ContactSection..."}>
-            {contactIsInView && <ContactSection />}
-          </Suspense>
         </section>
-
-        {/* <div ref={portfolioRef}>
-          <Suspense fallback={"loading PortfolioSection..."}>
+        <div ref={portfolioRef}>
+          <Suspense fallback={<LinearProgress />}>
             {portfolioIsInView && <PortfolioSection />}
           </Suspense>
         </div>
         <section id="contact" ref={contactRef}>
-          <Suspense fallback={"loading ContactSection..."}>
+          <Suspense fallback={<LinearProgress />}>
             {contactIsInView && <ContactSection />}
           </Suspense>
-        </section> */}
+        </section>
       </div>
     </ThemeProvider>
   );

@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^7.0.2",
     "@react-three/drei": "^10.0.5",
     "@svgr/plugin-svgo": "^8.1.0",
     "motion": "^12.6.2",
