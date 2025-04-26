@@ -1,11 +1,12 @@
 import "./servicesSection.css";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import Counter from "./Counter";
 import { motion, useInView } from "motion/react";
 import ComputerModelContainer from "../heroSection/computer/ComputerModelContainer";
 import PlaystationModelContainer from "./playstation/PlaystationModelContainer";
 import MugModelContainer from "./mug/MugModelContainer";
 import MouseTrailArea from "./mouseTrailEffect/MouseTrailArea";
+import { LanguageContext } from "../../providers/LanguageProvider";
 
 const textVariants = {
   initial: {
@@ -38,31 +39,32 @@ const listVariants = {
   },
 };
 
-const services = [
-  {
-    id: 1,
-    img: "/frontend-white.png",
-    counter: 35,
-    title: "Frontend",
-  },
-  {
-    id: 2,
-    img: "/backend-white.png",
-    counter: 15,
-    title: "Backend",
-  },
-  {
-    id: 3,
-    img: "/other-instruments-white.png",
-    counter: 115,
-    title: "Other instruments",
-  },
-];
-
 function ServicesSection() {
   const ref = useRef();
   const isInView = useInView(ref, { margin: "-200px" });
   const [currentServiceId, setCurrentServiceId] = useState(1);
+  const { t } = useContext(LanguageContext);
+
+  const services = [
+    {
+      id: 1,
+      img: "/frontend-white.png",
+      counter: 35,
+      title: t("frontend"),
+    },
+    {
+      id: 2,
+      img: "/backend-white.png",
+      counter: 15,
+      title: t("backend"),
+    },
+    {
+      id: 3,
+      img: "/other-instruments-white.png",
+      counter: 115,
+      title: t("other"),
+    },
+  ];
 
   return (
     <div className="services" ref={ref}>
@@ -73,7 +75,7 @@ function ServicesSection() {
           animate={isInView ? "animate" : "initial"}
           className="sTitle"
         >
-          What I work with
+          {t("sTitle")}
         </motion.h1>
         <motion.div
           variants={listVariants}
@@ -98,7 +100,7 @@ function ServicesSection() {
           ))}
         </motion.div>
         <div className="counterList">
-          <Counter from={0} to={3} text="Years of experience" />
+          <Counter from={0} to={3} text={t("yearsOfExperience")} />
         </div>
       </div>
       <div className="sSection right">

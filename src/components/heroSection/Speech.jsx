@@ -1,7 +1,11 @@
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "motion/react";
+import { useContext } from "react";
+import { LanguageContext } from "../../providers/LanguageProvider";
 
 function Speech() {
+  const { t } = useContext(LanguageContext);
+
   return (
     <motion.div
       className="bubbleContainer"
@@ -23,9 +27,12 @@ function Speech() {
           repeat={Infinity}
         /> */}
         <p className="bubble-text">
-          I`m a 22-year-old Web Developer. I`ve been programming for{" "}
-          <span>3</span> years. I like creating complex web applications and
-          continuously learning new stuff.
+          {t("bubbleTextStart")}
+          {/* I`m a 22-year-old Web Developer. I`ve been programming for{" "} */}
+          <span>3</span>
+          {t("bubbleTextEnd")}
+          {/* years. I like creating complex web applications and
+          continuously learning new stuff. */}
         </p>
       </div>
       <div className="photo-container">

@@ -43,6 +43,11 @@
   object-fit: cover;
 } */
 
+.theme-language-switch-container {
+  display: flex;
+  gap: 30px;
+}
+
 .heroSection,
 .heroSectionSkeleton {
   display: flex;
@@ -173,18 +178,23 @@
 
 .email-icon,
 .linkedin-icon,
-.github-icon {
+.github-icon,
+.telegram-icon {
   transition: all 0.3s ease-in-out;
 }
 
 .email-icon:hover,
 .linkedin-icon:hover,
-.github-icon:hover {
+.github-icon:hover,
+.telegram-icon:hover {
   color: var(--text-emphasis);
 }
 
 .email-icon {
   color: var(--text-secondary);
+}
+.telegram-icon {
+  color: #29b6f6;
 }
 
 .linkedin-icon {
@@ -206,11 +216,15 @@
 
 .bubble {
   width: 100%;
-  height: 100px;
+  /* height: 100px; */
   background-color: white;
   padding: 10px;
   border-radius: 20px 20px 0px 20px;
 }
+
+/* body[data-lang="ua"] .bubble {
+  height: 114px;
+} */
 
 .bubble-text {
   font-size: 16px;
@@ -240,13 +254,11 @@
   /* gap: 8px; */
 }
 
-.resume button {
-  background: none;
-  border: none;
+.resume a {
   cursor: pointer;
   color: var(--text-secondary);
-  font-size: 14px;
   transition: color 0.3s ease-in-out;
+  font-weight: 400;
 }
 
 .download-svg {
@@ -254,10 +266,10 @@
   fill: var(--text-secondary);
 }
 
-.resume button:hover {
+.resume a:hover {
   color: var(--text-emphasis);
 }
-.resume button:hover .download-svg {
+.resume a:hover .download-svg {
   fill: var(--text-emphasis);
 }
 
@@ -522,9 +534,6 @@
   .bubbleSkeletonContainer {
     width: 100%;
   }
-  .bubble {
-    height: auto;
-  }
   .bubble-text {
     font-size: 14px;
   }
@@ -537,7 +546,6 @@
   .hero {
     gap: 15px;
   }
-
   .resume {
     display: flex;
     flex-direction: row;

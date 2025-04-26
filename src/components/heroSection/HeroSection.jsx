@@ -3,7 +3,7 @@ import Speech from "./Speech";
 import { motion } from "motion/react";
 import { Canvas } from "@react-three/fiber";
 import Shape from "./Shape";
-import { Suspense, useContext } from "react";
+import { useContext } from "react";
 import DarkMode from "../lightDarkThemeToggle/DarkMode";
 import { ThemeContext } from "../../providers/ThemeProvider";
 import LocationSVG from "./svgs/location-sign.svg?react";
@@ -11,7 +11,10 @@ import DownloadSVG from "./svgs/download-icon.svg?react";
 import EmailSVG from "./svgs/email-icon.svg?react";
 import LinkedinSVG from "./svgs/linkedin-icon.svg?react";
 import GithubSVG from "./svgs/github-icon.svg?react";
+import TelegramSVG from "./svgs/telegram-icon.svg?react";
 import ComputerModelContainer from "./computer/ComputerModelContainer";
+import LanguageSwitch from "../languageSwitch/LanguageSwitch";
+import { LanguageContext } from "../../providers/LanguageProvider";
 
 const awardVariants = {
   initial: {
@@ -44,6 +47,7 @@ const followVariants = {
 
 function HeroSection() {
   const [theme, setTheme] = useContext(ThemeContext);
+  const { t } = useContext(LanguageContext);
 
   const handleScrollClick = (e, targetId) => {
     e.preventDefault();
@@ -58,7 +62,10 @@ function HeroSection() {
   return (
     <div className="hero">
       <div className="heroSection left">
-        <DarkMode />
+        <div className="theme-language-switch-container">
+          <DarkMode />
+          <LanguageSwitch />
+        </div>
 
         <motion.div
           variants={followVariants}
@@ -67,15 +74,20 @@ function HeroSection() {
           className="follow-in-small-screen"
         >
           <motion.a variants={followVariants} href="mailto:sorukv@gmail.com">
-            {/* <img src="/instagram.png" alt="" /> */}
             <EmailSVG className="email-icon" />
+          </motion.a>
+          <motion.a
+            variants={followVariants}
+            href="http://t.me/vlad_6513"
+            target="_blank"
+          >
+            <TelegramSVG className="telegram-icon" />
           </motion.a>
           <motion.a
             variants={followVariants}
             href="https://www.linkedin.com/in/vladyslav-soruk"
             target="_blank"
           >
-            {/* <img src="/facebook.png" alt="" /> */}
             <LinkedinSVG className="linkedin-icon" />
           </motion.a>
           <motion.a
@@ -83,12 +95,13 @@ function HeroSection() {
             href="https://github.com/vladyslavsoruk"
             target="_blank"
           >
-            {/* <img src="/youtube.png" alt="" /> */}
             <GithubSVG className="github-icon" />
           </motion.a>
           <motion.div variants={followVariants} className="followTextContainer">
             <div className="followText">
-              CONTACT{"\u00A0\u00A0"}ME{"\u00A0\u00A0"}•
+              {t("followText")}
+
+              {/* CONTACT{"\u00A0\u00A0"}ME{"\u00A0\u00A0"}• */}
             </div>
           </motion.div>
         </motion.div>
@@ -99,7 +112,8 @@ function HeroSection() {
           transition={{ duration: 1 }}
         >
           <div className="heroTitle">
-            Hey there
+            {t("heroTitle")}
+            {/* Hey there */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="80px"
@@ -428,11 +442,18 @@ function HeroSection() {
               </defs>
             </svg>
             {","}
-            <br /> <span>I`m Vlad</span>
+            <br />{" "}
+            <span>
+              {t("heroTitleSpan")}
+              {/* I`m Vlad */}
+            </span>
           </div>
           <p className="location-container">
             <LocationSVG />
-            <span>Kiev, Ukraine</span>
+            <span>
+              {t("location")}
+              {/* Kiev, Ukraine */}
+            </span>
           </p>
         </motion.div>
         <motion.div
@@ -442,7 +463,8 @@ function HeroSection() {
           animate="animate"
         >
           <motion.h2 variants={awardVariants}>
-            Full Stack Web Developer
+            {t("stackTitle")}
+            {/* Full Stack Web Developer */}
           </motion.h2>
           <motion.p variants={awardVariants} className="stack-text">
             React + Node.js
@@ -499,6 +521,13 @@ function HeroSection() {
           </motion.a>
           <motion.a
             variants={followVariants}
+            href="http://t.me/vlad_6513"
+            target="_blank"
+          >
+            <TelegramSVG className="telegram-icon" />
+          </motion.a>
+          <motion.a
+            variants={followVariants}
             href="https://www.linkedin.com/in/vladyslav-soruk"
             target="_blank"
           >
@@ -515,7 +544,8 @@ function HeroSection() {
           </motion.a>
           <motion.div variants={followVariants} className="followTextContainer">
             <div className="followText">
-              CONTACT{"\u00A0\u00A0"}ME{"\u00A0\u00A0"}•
+              {t("followText")}
+              {/* CONTACT{"\u00A0\u00A0"}ME{"\u00A0\u00A0"}• */}
             </div>
           </motion.div>
         </motion.div>
@@ -529,9 +559,16 @@ function HeroSection() {
             src={theme === "dark" ? "/resume-white.png" : "/resume-black.png"}
             alt=""
           />
-          <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-            Download CV <DownloadSVG className="download-svg" />
-          </motion.button>
+          <motion.a
+            href="/Vladyslav-Soruk-resume.pdf"
+            download="Vladyslav-Soruk-resume.pdf"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {t("downloadResume")}
+            {/* Download CV  */}
+            <DownloadSVG className="download-svg" />
+          </motion.a>
         </motion.div>
 
         <motion.div
@@ -557,11 +594,15 @@ function HeroSection() {
                   d="M 100,100 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
                 />
                 <text className="circleText">
-                  <textPath href="#innerCirclePath">Contact Me •</textPath>
+                  <textPath href="#innerCirclePath">
+                    {t("circleText")}
+                    {/* Contact Me • */}
+                  </textPath>
                 </text>
                 <text className="circleText">
                   <textPath href="#innerCirclePath" startOffset="46%">
-                    Contact Me •
+                    {t("circleText")}
+                    {/* Contact Me • */}
                   </textPath>
                 </text>
               </svg>

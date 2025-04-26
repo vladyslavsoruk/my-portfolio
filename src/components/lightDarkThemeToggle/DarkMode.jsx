@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Sun from "./Sun.svg?react";
 import Moon from "./Moon.svg?react";
-import "./DarkMode.css";
+import "./darkMode.css";
 import { ThemeContext } from "../../providers/ThemeProvider";
 
 const DarkMode = () => {
@@ -18,7 +18,7 @@ const DarkMode = () => {
 
   const [theme, setTheme] = useContext(ThemeContext);
 
-  function toggleTheme(e) {
+  function toggleTheme() {
     setTheme(theme === "dark" ? "light" : "dark");
   }
 

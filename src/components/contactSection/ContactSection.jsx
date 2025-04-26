@@ -5,6 +5,7 @@ import { motion, useInView } from "motion/react";
 import ContactSvg from "./ContactSvg";
 import { ToastContainer, toast } from "react-toastify";
 import { ThemeContext } from "../../providers/ThemeProvider";
+import { LanguageContext } from "../../providers/LanguageProvider";
 // import "react-toastify/dist/ReactToastify.css";
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
@@ -47,6 +48,7 @@ function ContactSection() {
   const formIsInView = useInView(formRef, { margin: "-100px" });
 
   const [theme, setTheme] = useContext(ThemeContext);
+  const { t } = useContext(LanguageContext);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -61,13 +63,13 @@ function ContactSection() {
           // setSuccess(true);
           // setError(false);
           setEmailIsSending(false);
-          toast("Your message has been sent successfully !");
+          toast.success(t("successNotification"));
         },
         (error) => {
           // setSuccess(false);
           // setError(true);
           setEmailIsSending(false);
-          toast("Something went wrong :(");
+          toast.error(t("errorNotification"));
         }
       );
   };
@@ -83,7 +85,7 @@ function ContactSection() {
           animate={formIsInView ? "animate" : "initial"}
         >
           <motion.h1 variants={listVariants} className="cTitle">
-            Let`s work together{" "}
+            {t("cTitle")}{" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="60px"
@@ -488,12 +490,11 @@ function ContactSection() {
               </defs>
             </svg>
           </motion.h1>
-          {/* <img src="/underline-sketch.png" /> */}
           <motion.div variants={listVariants} className="formItem">
-            <label>Name</label>
+            <label>{t("labelName")}</label>
             <input
               type="text"
-              placeholder="John Doe"
+              placeholder={t("namePlaceholder")}
               name="name"
               required
               minLength="3"
@@ -501,20 +502,20 @@ function ContactSection() {
             />
           </motion.div>
           <motion.div variants={listVariants} className="formItem">
-            <label>Email</label>
+            <label>{t("labelEmail")}</label>
             <input
               type="Email"
-              placeholder="john@gmail.com"
+              placeholder="john-wick@gmail.com"
               name="sender-email"
               required
               maxLength="50"
             />
           </motion.div>
           <motion.div variants={listVariants} className="formItem">
-            <label>Message</label>
+            <label>{t("labelMessage")}</label>
             <textarea
               rows={10}
-              placeholder="Write your message here..."
+              placeholder={t("messagePlaceholder")}
               name="message"
               required
               minLength="5"
@@ -522,7 +523,7 @@ function ContactSection() {
             ></textarea>
           </motion.div>
           <motion.button variants={listVariants} className="formButton">
-            Send{" "}
+            {t("sendButton")}{" "}
             {emailIsSending && (
               <motion.div
                 variants={loadingIndicators}
@@ -536,14 +537,6 @@ function ContactSection() {
               </motion.div>
             )}
           </motion.button>
-          {/* {success && (
-            <span className="emailSuccessMessage">
-              Your message has been sent successfully !
-            </span>
-          )}
-          {error && (
-            <span className="emailFailMessage">Something went wrong :(</span>
-          )} */}
         </motion.form>
       </div>
       <div className="cSection">

@@ -1,8 +1,12 @@
 import { useInView } from "motion/react";
-import { lazy, Suspense, useRef } from "react";
+import { lazy, Suspense, useContext, useRef } from "react";
 import HeroSectionSkeleton from "./components/heroSection/HeroSectionSkeleton";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import { LinearProgress } from "@mui/material";
+import {
+  LanguageContext,
+  LanguageProvider,
+} from "./providers/LanguageProvider";
 
 const HeroSection = lazy(() => import("./components/heroSection/HeroSection"));
 const PortfolioSection = lazy(() =>
@@ -14,6 +18,16 @@ const ServicesSection = lazy(() =>
 const ContactSection = lazy(() =>
   import("./components/contactSection/ContactSection")
 );
+
+const LoadingSkeleton = () => {
+  const { t } = useContext(LanguageContext);
+  return (
+    <div className="loading-skeleton">
+      <p>{t("loadingText")}</p>
+      <LinearProgress />
+    </div>
+  );
+};
 
 function App() {
   const heroRef = useRef();
@@ -38,28 +52,30 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="container">
-        <section id="hero" ref={heroRef}>
-          <Suspense fallback={<LinearProgress />}>
-            {heroIsInView && <HeroSection />}
-          </Suspense>
-        </section>
-        <section id="services" ref={serviceRef}>
-          <Suspense fallback={<LinearProgress />}>
-            {serviceIsInView && <ServicesSection />}
-          </Suspense>
-        </section>
-        <div ref={portfolioRef}>
-          <Suspense fallback={<LinearProgress />}>
-            {portfolioIsInView && <PortfolioSection />}
-          </Suspense>
+      <LanguageProvider>
+        <div className="container">
+          <section id="hero" ref={heroRef}>
+            <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
+              {heroIsInView && <HeroSection />}
+            </Suspense>
+          </section>
+          <section id="services" ref={serviceRef}>
+            <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
+              {serviceIsInView && <ServicesSection />}
+            </Suspense>
+          </section>
+          <div ref={portfolioRef}>
+            <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
+              {portfolioIsInView && <PortfolioSection />}
+            </Suspense>
+          </div>
+          <section id="contact" ref={contactRef}>
+            <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
+              {contactIsInView && <ContactSection />}
+            </Suspense>
+          </section>
         </div>
-        <section id="contact" ref={contactRef}>
-          <Suspense fallback={<LinearProgress />}>
-            {contactIsInView && <ContactSection />}
-          </Suspense>
-        </section>
-      </div>
+      </LanguageProvider>
     </ThemeProvider>
   );
 }

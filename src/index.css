@@ -13,6 +13,9 @@ body[data-theme="light"] {
   --service-active: rgb(174, 229, 247);
   --form-input-focus: #6c63ff;
   --linear-progress-bar-root: #c2def1;
+  --lang-switch-background: #ebebeb;
+  --toggle-btn-box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.4),
+    inset 0px -2px 1px rgba(0, 0, 0, 0.4);
 }
 
 body[data-theme="dark"] {
@@ -29,6 +32,9 @@ body[data-theme="dark"] {
   --service-active: #50396a;
   --form-input-focus: pink;
   --linear-progress-bar-root: white;
+  --lang-switch-background: #242424;
+  --toggle-btn-box-shadow: inset 0px 2px 2px rgba(236, 231, 231, 0.4),
+    inset 0px -2px 2px rgba(206, 230, 231, 0.4);
 }
 
 * {
@@ -90,8 +96,24 @@ section {
   scroll-snap-align: center;
 }
 
+.loading-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.loading-skeleton p {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
 .MuiLinearProgress-root {
-  top: 30px;
+  display: block;
+  width: 100%;
   border-radius: 10px;
   height: 8px !important;
   background-color: var(--linear-progress-bar-root) !important;
