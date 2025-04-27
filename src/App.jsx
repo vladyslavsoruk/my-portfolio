@@ -3,10 +3,14 @@ import { lazy, Suspense, useContext, useRef } from "react";
 import HeroSectionSkeleton from "./components/heroSection/HeroSectionSkeleton";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import { LinearProgress } from "@mui/material";
+import { Canvas } from "@react-three/fiber";
+
 import {
   LanguageContext,
   LanguageProvider,
 } from "./providers/LanguageProvider";
+import ComputerModelContainer from "./components/heroSection/computer/MacbookModelContainer";
+import Shape from "./components/heroSection/Shape";
 
 const HeroSection = lazy(() => import("./components/heroSection/HeroSection"));
 const PortfolioSection = lazy(() =>
@@ -54,6 +58,19 @@ function App() {
     <ThemeProvider>
       <LanguageProvider>
         <div className="container">
+          {/*<div style={{ position: "relative", width: "90%", height: "90vh" }}>
+            <ComputerModelContainer /> */}
+          {/* <div className="bg">
+              <Canvas>
+                <Suspense fallback="loading...">
+                  <Shape />
+                </Suspense>
+              </Canvas>
+              <div className="computer-model">
+                
+              </div>
+            </div> */}
+          {/* </div> */}
           <section id="hero" ref={heroRef}>
             <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
               {heroIsInView && <HeroSection />}

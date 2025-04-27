@@ -2,7 +2,7 @@ import "./servicesSection.css";
 import { useContext, useRef, useState } from "react";
 import Counter from "./Counter";
 import { motion, useInView } from "motion/react";
-import ComputerModelContainer from "../heroSection/computer/ComputerModelContainer";
+import ComputerModelContainer from "../heroSection/computer/MacbookModelContainer";
 import PlaystationModelContainer from "./playstation/PlaystationModelContainer";
 import MugModelContainer from "./mug/MugModelContainer";
 import MouseTrailArea from "./mouseTrailEffect/MouseTrailArea";
@@ -163,7 +163,7 @@ function ServicesSection() {
         )}
 
         <div className="counterList-on-small-screen">
-          <Counter from={0} to={3} text="Years of experience" />
+          <Counter from={0} to={3} text={t("yearsOfExperience")} />
         </div>
       </div>
     </div>

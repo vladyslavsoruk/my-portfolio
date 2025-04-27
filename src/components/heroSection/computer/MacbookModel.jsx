@@ -1,7 +1,7 @@
 import React from "react";
 import { useGLTF } from "@react-three/drei";
 
-export function ComputerModel(props) {
+export function MacbookModel(props) {
   const { nodes, materials } = useGLTF("/macbook-model.glb");
   return (
     <group {...props} dispose={null}>

@@ -12,7 +12,7 @@ import EmailSVG from "./svgs/email-icon.svg?react";
 import LinkedinSVG from "./svgs/linkedin-icon.svg?react";
 import GithubSVG from "./svgs/github-icon.svg?react";
 import TelegramSVG from "./svgs/telegram-icon.svg?react";
-import ComputerModelContainer from "./computer/ComputerModelContainer";
+import MacbookModelContainer from "./computer/MacbookModelContainer";
 import LanguageSwitch from "../languageSwitch/LanguageSwitch";
 import { LanguageContext } from "../../providers/LanguageProvider";
 
@@ -624,17 +624,8 @@ function HeroSection() {
           </motion.div>
         </motion.div>
       </div>
-      <div className="bg">
-        {/* <Canvas>
-          <Suspense fallback="loading...">
-            <Shape />
-          </Suspense>
-        </Canvas> */}
-        <div className="computer-model">
-          {/* <img src="/hero.png" alt="" /> */}
-          {/* <ComputerModelContainer /> */}
-        </div>
-      </div>
+
+      <MacbookModelContainer />
     </div>
   );
 }
