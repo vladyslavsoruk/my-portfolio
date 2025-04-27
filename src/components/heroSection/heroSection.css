@@ -241,22 +241,16 @@
   object-fit: contain;
   object-position: 7px 2px;
   background-color: #dd4c62;
-  /* margin-top: 5px; */
 }
 
-.certificateSkeletonContainer,
 .resume {
-  width: 60%;
   display: flex;
   flex-direction: column;
-  /* gap: 8px; */
-}
-
-.resume a {
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  color: var(--text-secondary);
   transition: color 0.3s ease-in-out;
-  font-weight: 400;
+  padding: 0 12px;
 }
 
 .download-svg {
@@ -264,10 +258,10 @@
   fill: var(--text-secondary);
 }
 
-.resume a:hover {
+.resume:hover p {
   color: var(--text-emphasis);
 }
-.resume a:hover .download-svg {
+.resume:hover .download-svg {
   fill: var(--text-emphasis);
 }
 
@@ -276,12 +270,11 @@
   align-items: center;
 }
 
-.resume {
+.resume p {
   text-align: center;
   line-height: 24px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-secondary);
-  align-items: center;
 }
 
 .resume img {

@@ -33,6 +33,11 @@ export const translations = {
     sendButton: "Send",
     successNotification: "Your message has been sent successfully!",
     errorNotification: "Something went wrong :(",
+    nameInputErrorMin: "Name should be of 3 or more symbols!",
+    nameInputErrorMax: "Name should have less than 51 symbols!",
+    emailInputError: "Invalid email address!",
+    messageInputErrorMin: "Message should be of 10 or more symbols!",
+    messageInputErrorMax: "Message should have less than 501 symbols!",
     // ------------------------------
 
     // Loading Skeleton
@@ -72,6 +77,12 @@ export const translations = {
     sendButton: "Надіслати",
     successNotification: "Ваше повідомлення було успішно надіслано!",
     errorNotification: "Щось пішло не так :(",
+    nameInputErrorMin: "Ім'я повинно містити не менше 3 символів!",
+    nameInputErrorMax: "Ім'я повинно містити не більше 50 символів!",
+    emailInputError: "Недопустима адреса електронної пошти!",
+    messageInputErrorMin: "Повідомлення повинно містити не менше 10 символів!",
+    messageInputErrorMax:
+      "Повідомлення повинно містити не більше 500 символів!",
     // ------------------------------
 
     // Loading Skeleton

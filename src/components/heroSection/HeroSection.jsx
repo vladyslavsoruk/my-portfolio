@@ -98,11 +98,7 @@ function HeroSection() {
             <GithubSVG className="github-icon" />
           </motion.a>
           <motion.div variants={followVariants} className="followTextContainer">
-            <div className="followText">
-              {t("followText")}
-
-              {/* CONTACT{"\u00A0\u00A0"}ME{"\u00A0\u00A0"}• */}
-            </div>
+            <div className="followText">{t("followText")}</div>
           </motion.div>
         </motion.div>
 
@@ -113,7 +109,6 @@ function HeroSection() {
         >
           <div className="heroTitle">
             {t("heroTitle")}
-            {/* Hey there */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="80px"
@@ -442,18 +437,11 @@ function HeroSection() {
               </defs>
             </svg>
             {","}
-            <br />{" "}
-            <span>
-              {t("heroTitleSpan")}
-              {/* I`m Vlad */}
-            </span>
+            <br /> <span>{t("heroTitleSpan")}</span>
           </div>
           <p className="location-container">
             <LocationSVG />
-            <span>
-              {t("location")}
-              {/* Kiev, Ukraine */}
-            </span>
+            <span>{t("location")}</span>
           </p>
         </motion.div>
         <motion.div
@@ -462,18 +450,10 @@ function HeroSection() {
           initial="initial"
           animate="animate"
         >
-          <motion.h2 variants={awardVariants}>
-            {t("stackTitle")}
-            {/* Full Stack Web Developer */}
-          </motion.h2>
+          <motion.h2 variants={awardVariants}>{t("stackTitle")}</motion.h2>
           <motion.p variants={awardVariants} className="stack-text">
             React + Node.js
           </motion.p>
-          {/* <motion.div className="awardList" variants={awardVariants}>
-            <motion.img variants={awardVariants} src="/award1.png" alt="" />
-            <motion.img variants={awardVariants} src="/award2.png" alt="" />
-            <motion.img variants={awardVariants} src="/award3.png" alt="" />
-          </motion.div> */}
         </motion.div>
         <motion.button
           animate={{ y: [0, 5], opacity: [0, 1, 0] }}
@@ -550,26 +530,35 @@ function HeroSection() {
           </motion.div>
         </motion.div>
         <Speech />
-        <motion.div
+        {/* <motion.div
           className="resume"
           animate={{ opacity: [0, 1] }}
           transition={{ duration: 1.5 }}
+        > */}
+        <motion.a
+          href="/Vladyslav-Soruk-resume.pdf"
+          download="Vladyslav-Soruk-resume.pdf"
+          className="resume"
+          animate={{ opacity: [0, 1] }}
+          transition={{ opacity: { duration: 1.5 } }}
+          whileHover={{
+            scale: 1.1,
+            transition: { type: "spring", stiffness: 300 },
+          }}
+          whileTap={{
+            scale: 0.95,
+            transition: { type: "spring", stiffness: 500 },
+          }}
         >
           <img
             src={theme === "dark" ? "/resume-white.png" : "/resume-black.png"}
             alt=""
           />
-          <motion.a
-            href="/Vladyslav-Soruk-resume.pdf"
-            download="Vladyslav-Soruk-resume.pdf"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {t("downloadResume")}
-            {/* Download CV  */}
-            <DownloadSVG className="download-svg" />
-          </motion.a>
-        </motion.div>
+          <p>
+            {t("downloadResume")} <DownloadSVG className="download-svg" />
+          </p>
+        </motion.a>
+        {/* </motion.div> */}
 
         <motion.div
           className="contactLinkContainer"
@@ -583,8 +572,14 @@ function HeroSection() {
           >
             <motion.div
               className="contactButton"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{
+                scale: 1.1,
+                transition: { type: "spring", stiffness: 300 },
+              }}
+              whileTap={{
+                scale: 0.95,
+                transition: { type: "spring", stiffness: 500 },
+              }}
             >
               <svg viewBox="0 0 200 200" width="150" height="150">
                 <circle cx="100" cy="100" r="90" fill="var(--text-emphasis)" />

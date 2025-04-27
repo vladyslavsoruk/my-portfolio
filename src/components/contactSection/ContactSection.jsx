@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import "./contactSection.css";
 import emailjs from "@emailjs/browser";
 import { motion, useInView } from "motion/react";
@@ -6,7 +6,9 @@ import ContactSvg from "./ContactSvg";
 import { ToastContainer, toast } from "react-toastify";
 import { ThemeContext } from "../../providers/ThemeProvider";
 import { LanguageContext } from "../../providers/LanguageProvider";
-// import "react-toastify/dist/ReactToastify.css";
+import { set, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { createFormSchema } from "../../helpers/FormValidationSchema";
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
@@ -41,17 +43,33 @@ const loadingIndicators = {
 };
 
 function ContactSection() {
-  // const [success, setSuccess] = useState(false);
-  // const [error, setError] = useState(false);
+  const { t } = useContext(LanguageContext);
   const [emailIsSending, setEmailIsSending] = useState(false);
+  const formSchema = useMemo(() => createFormSchema(t), [t]);
+
   const formRef = useRef();
   const formIsInView = useInView(formRef, { margin: "-100px" });
+  const [theme] = useContext(ThemeContext);
 
-  const [theme, setTheme] = useContext(ThemeContext);
-  const { t } = useContext(LanguageContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    clearErrors,
+  } = useForm({
+    resolver: zodResolver(formSchema),
+    mode: "onChange",
+    reValidateMode: "onChange",
+  });
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    clearErrors();
+  }, [formSchema]);
+
+  const onSubmit = handleSubmit((d) => {
+    console.log("HELLO from react-hook-form!!!");
+    console.log(d);
+
     setEmailIsSending(true);
 
     emailjs
@@ -60,26 +78,42 @@ function ContactSection() {
       })
       .then(
         () => {
-          // setSuccess(true);
-          // setError(false);
           setEmailIsSending(false);
           toast.success(t("successNotification"));
         },
         (error) => {
-          // setSuccess(false);
-          // setError(true);
           setEmailIsSending(false);
           toast.error(t("errorNotification"));
         }
       );
-  };
+  });
+
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
+  //   setEmailIsSending(true);
+
+  //   emailjs
+  //     .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, {
+  //       publicKey: PUBLIC_KEY,
+  //     })
+  //     .then(
+  //       () => {
+  //         setEmailIsSending(false);
+  //         toast.success(t("successNotification"));
+  //       },
+  //       (error) => {
+  //         setEmailIsSending(false);
+  //         toast.error(t("errorNotification"));
+  //       }
+  //     );
+  // };
 
   return (
     <div className="contacts">
       <div className="cSection">
         <motion.form
           ref={formRef}
-          onSubmit={sendEmail}
+          onSubmit={onSubmit}
           variants={listVariants}
           initial="initial"
           animate={formIsInView ? "animate" : "initial"}
@@ -495,34 +529,63 @@ function ContactSection() {
             <input
               type="text"
               placeholder={t("namePlaceholder")}
-              name="name"
-              required
-              minLength="3"
-              maxLength="50"
+              {...register("name")}
             />
+            {errors.name && (
+              <motion.p
+                animate={{ opacity: [0, 1] }}
+                className="form-input-error"
+              >
+                {errors.name.message}
+              </motion.p>
+            )}
           </motion.div>
           <motion.div variants={listVariants} className="formItem">
             <label>{t("labelEmail")}</label>
             <input
-              type="Email"
+              type="email"
               placeholder="john-wick@gmail.com"
-              name="sender-email"
-              required
-              maxLength="50"
+              {...register("senderEmail")}
             />
+            {errors.senderEmail && (
+              <motion.p
+                animate={{ opacity: [0, 1] }}
+                className="form-input-error"
+              >
+                {errors.senderEmail.message}
+              </motion.p>
+            )}
           </motion.div>
           <motion.div variants={listVariants} className="formItem">
             <label>{t("labelMessage")}</label>
             <textarea
               rows={10}
+              {...register("message")}
               placeholder={t("messagePlaceholder")}
-              name="message"
-              required
-              minLength="5"
-              maxLength="500"
             ></textarea>
+            {errors.message && (
+              <motion.p
+                animate={{ opacity: [0, 1] }}
+                className="form-input-error"
+              >
+                {errors.message.message}
+              </motion.p>
+            )}
           </motion.div>
-          <motion.button variants={listVariants} className="formButton">
+          <motion.button
+            variants={listVariants}
+            className="formButton"
+            type="submit"
+            disabled={emailIsSending}
+            whileHover={{
+              scale: 1.05,
+              transition: { type: "spring", stiffness: 300 },
+            }}
+            whileTap={{
+              scale: 0.95,
+              transition: { type: "spring", stiffness: 500 },
+            }}
+          >
             {t("sendButton")}{" "}
             {emailIsSending && (
               <motion.div

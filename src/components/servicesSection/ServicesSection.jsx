@@ -110,19 +110,82 @@ function ServicesSection() {
           <div className="techStackContainer">
             <MouseTrailArea>
               <div className="techStackList">
-                <motion.h2 whileHover={{ scale: 1.1 }}>HTML</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>CSS</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>JavaScript</motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  HTML
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  CSS
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  JavaScript
+                </motion.h2>
               </div>
               <div className="techStackList">
-                <motion.h2 whileHover={{ scale: 1.1 }}>React</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>TypeScript</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>Vite</motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  React
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  TypeScript
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  Vite
+                </motion.h2>
               </div>
               <div className="techStackList">
-                <motion.h2 whileHover={{ scale: 1.1 }}>Next</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>Tailwind</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>MUI</motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  Next
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  Tailwind
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  MUI
+                </motion.h2>
               </div>
             </MouseTrailArea>
           </div>
@@ -130,22 +193,92 @@ function ServicesSection() {
           <div className="techStackContainer">
             <MouseTrailArea>
               <div className="techStackList">
-                <motion.h2 whileHover={{ scale: 1.1 }}>Spring</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>Python</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>.NET</motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  Spring
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  Python
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  .NET
+                </motion.h2>
               </div>
               <div className="techStackList">
-                <motion.h2 whileHover={{ scale: 1.1 }}>MongoDB</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>PostgreSQL</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>MySQL</motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  MongoDB
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  PostgreSQL
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  MySQL
+                </motion.h2>
               </div>
               <div className="techStackList">
-                <motion.h2 whileHover={{ scale: 1.1 }}>NestJS</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>Node js</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>Express</motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  NestJS
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  Node js
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  Express
+                </motion.h2>
               </div>
               <div className="techStackList">
-                <motion.h2 whileHover={{ scale: 1.1 }}>Docker</motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  Docker
+                </motion.h2>
               </div>
             </MouseTrailArea>
           </div>
@@ -153,10 +286,38 @@ function ServicesSection() {
           <div className="techStackContainer">
             <MouseTrailArea>
               <div className="techStackList">
-                <motion.h2 whileHover={{ scale: 1.1 }}>Git</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>Vercel</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>AWS</motion.h2>
-                <motion.h2 whileHover={{ scale: 1.1 }}>Jest</motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  Git
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  Vercel
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  AWS
+                </motion.h2>
+                <motion.h2
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  Jest
+                </motion.h2>
               </div>
             </MouseTrailArea>
           </div>

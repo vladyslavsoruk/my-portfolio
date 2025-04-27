@@ -35,9 +35,9 @@ function Speech() {
           continuously learning new stuff. */}
         </p>
       </div>
-      <div className="photo-container">
+      <motion.div className="photo-container">
         <img src="/my-photo.png" alt="" />
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

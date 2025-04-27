@@ -94,6 +94,13 @@ label {
   cursor: pointer;
 }
 
+.form-input-error {
+  text-align: left;
+  font-weight: 500;
+  font-size: 14px;
+  color: #dd4c62;
+}
+
 /* .emailSuccessMessage,
 .emailFailMessage {
   color: rgb(46, 197, 46);
