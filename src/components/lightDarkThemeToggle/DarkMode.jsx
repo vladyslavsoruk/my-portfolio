@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+// import "./darkMode.css";
+// import "src/components/lightDarkThemeToggle/darkMode.css";
+import { useContext } from "react";
 import Sun from "./Sun.svg?react";
 import Moon from "./Moon.svg?react";
-import "./darkMode.css";
 import { ThemeContext } from "../../providers/ThemeProvider";
 
 const DarkMode = () => {
