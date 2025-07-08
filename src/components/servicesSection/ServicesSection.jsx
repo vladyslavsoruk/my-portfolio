@@ -1,5 +1,5 @@
 import "./servicesSection.css";
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Counter from "./Counter";
 import { motion, useInView } from "motion/react";
 import ComputerModelContainer from "../heroSection/computer/MacbookModelContainer";
@@ -7,6 +7,7 @@ import PlaystationModelContainer from "./playstation/PlaystationModelContainer";
 import MugModelContainer from "./mug/MugModelContainer";
 import MouseTrailArea from "./mouseTrailEffect/MouseTrailArea";
 import { LanguageContext } from "../../providers/LanguageProvider";
+import { ThemeContext } from "../../providers/ThemeProvider";
 
 const textVariants = {
   initial: {
@@ -44,6 +45,30 @@ function ServicesSection() {
   const isInView = useInView(ref, { margin: "-200px" });
   const [currentServiceId, setCurrentServiceId] = useState(1);
   const { t } = useContext(LanguageContext);
+  const [theme] = useContext(ThemeContext);
+
+  const [showReturnBtn, setShowReturnBtn] = useState(false);
+  function onScroll() {
+    // если проскроллено больше, чем высота окна (первая секция сайта)
+    // то показываем кнопку возврата
+    // иначе скрываем
+    console.log(
+      "onScrollEVENT: ",
+      window.scrollY,
+      window.innerHeight * (2 / 3)
+    );
+    console.log(window.scrollY >= window.innerHeight);
+
+    setShowReturnBtn(window.scrollY >= window.innerHeight * (2 / 3));
+  }
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  useEffect(() => {
+    // при загрузке страницы проверяем, проскроллено ли больше, чем высота окна
+    setShowReturnBtn(window.scrollY >= window.innerHeight * (2 / 3));
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const services = [
     {
@@ -158,7 +183,7 @@ function ServicesSection() {
                     transition: { type: "spring", stiffness: 300 },
                   }}
                 >
-                  Vite
+                  Redux
                 </motion.h2>
               </div>
               <div className="techStackList">
@@ -327,6 +352,35 @@ function ServicesSection() {
           <Counter from={0} to={3} text={t("yearsOfExperience")} />
         </div>
       </div>
+
+      {showReturnBtn && (
+        <motion.div
+          className="returnButtonContainer"
+          onClick={scrollToTop}
+          initial={{ x: -95, y: 95, opacity: 0 }}
+          animate={{ x: 0, y: 0, opacity: 1 }}
+          transition={{
+            x: { duration: 2 },
+            y: { duration: 2 },
+            opacity: { duration: 2 },
+          }}
+          whileHover={{
+            scale: 1.1,
+            transition: { type: "spring", stiffness: 300 },
+          }}
+          whileTap={{
+            scale: 0.95,
+            transition: { type: "spring", stiffness: 500 },
+          }}
+        >
+          <img
+            src={
+              theme === "dark" ? "/up-arrow-white.png" : "/up-arrow-violet.png"
+            }
+            alt="up-arrow"
+          />
+        </motion.div>
+      )}
     </div>
   );
 }

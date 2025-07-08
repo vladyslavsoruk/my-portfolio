@@ -78,7 +78,7 @@ function HeroSection() {
           </motion.a>
           <motion.a
             variants={followVariants}
-            href="http://t.me/vlad_6513"
+            href="http://t.me/vladsoruk"
             target="_blank"
           >
             <TelegramSVG className="telegram-icon" />
@@ -501,7 +501,7 @@ function HeroSection() {
           </motion.a>
           <motion.a
             variants={followVariants}
-            href="http://t.me/vlad_6513"
+            href="http://t.me/vladsoruk"
             target="_blank"
           >
             <TelegramSVG className="telegram-icon" />
