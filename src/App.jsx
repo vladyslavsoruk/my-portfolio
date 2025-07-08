@@ -72,14 +72,16 @@ function App() {
             </div> */}
           {/* </div> */}
           <section id="hero" ref={heroRef}>
-            <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
+            {/* <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
               {heroIsInView && <HeroSection />}
-            </Suspense>
+            </Suspense> */}
+            <HeroSection />
           </section>
           <section id="services" ref={serviceRef}>
-            <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
+            {/* <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
               {serviceIsInView && <ServicesSection />}
-            </Suspense>
+            </Suspense> */}
+            <ServicesSection />
           </section>
           {/* <div ref={portfolioRef}>
             <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
@@ -87,9 +89,10 @@ function App() {
             </Suspense>
           </div> */}
           <section id="contact" ref={contactRef}>
-            <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
+            {/* <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
               {contactIsInView && <ContactSection />}
-            </Suspense>
+            </Suspense> */}
+            <ContactSection />
           </section>
         </div>
       </LanguageProvider>
