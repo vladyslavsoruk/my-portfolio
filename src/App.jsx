@@ -81,11 +81,11 @@ function App() {
               {serviceIsInView && <ServicesSection />}
             </Suspense>
           </section>
-          <div ref={portfolioRef}>
+          {/* <div ref={portfolioRef}>
             <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
               {portfolioIsInView && <PortfolioSection />}
             </Suspense>
-          </div>
+          </div> */}
           <section id="contact" ref={contactRef}>
             <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
               {contactIsInView && <ContactSection />}
