@@ -3,7 +3,7 @@ import Speech from "./Speech";
 import { motion } from "motion/react";
 import { useContext } from "react";
 import DarkMode from "../lightDarkThemeToggle/DarkMode";
-import "../lightDarkThemeToggle/darkMode.css";
+// import "../lightDarkThemeToggle/darkMode.css";
 import { ThemeContext } from "../../providers/ThemeProvider";
 import LocationSVG from "./svgs/location-sign.svg?react";
 import DownloadSVG from "./svgs/download-icon.svg?react";
