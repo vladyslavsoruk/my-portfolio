@@ -1,5 +1,4 @@
-// import "./darkMode.css";
-// import "src/components/lightDarkThemeToggle/darkMode.css";
+import "./darkMode.css";
 import { useContext } from "react";
 import Sun from "./Sun.svg?react";
 import Moon from "./Moon.svg?react";
