@@ -40,50 +40,51 @@ const items = [
   },
 ];
 
-const imagesVariants = {
-  initial: {
-    x: -500,
-    y: 500,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeInOut",
-    },
-  },
-};
-const descVariants = {
-  initial: {
-    x: 500,
-    y: 500,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeInOut",
-      staggerChildren: 0.1,
-    },
-  },
-};
+// const imagesVariants = {
+//   initial: {
+//     x: -500,
+//     y: 500,
+//     opacity: 0,
+//   },
+//   animate: {
+//     x: 0,
+//     y: 0,
+//     opacity: 1,
+//     transition: {
+//       duration: 0.5,
+//       ease: "easeInOut",
+//     },
+//   },
+// };
+// const descVariants = {
+//   initial: {
+//     x: 500,
+//     y: 500,
+//     opacity: 0,
+//   },
+//   animate: {
+//     x: 0,
+//     y: 0,
+//     opacity: 1,
+//     transition: {
+//       duration: 0.5,
+//       ease: "easeInOut",
+//       staggerChildren: 0.1,
+//     },
+//   },
+// };
 
 const ListItem = ({ item }) => {
   const ref = useRef();
   const isInView = useInView(ref, {
-    margin: "-200px",
+    // amount: 0.5,
+    // margin: "-200px",
   });
   return (
     <div className="pItem" ref={ref}>
       <motion.div
         className="pImg"
-        variants={imagesVariants}
+        // variants={imagesVariants}
         initial="initial"
         animate={isInView ? "animate" : ""}
       >
@@ -91,13 +92,24 @@ const ListItem = ({ item }) => {
       </motion.div>
       <motion.div
         className="pText"
-        variants={descVariants}
+        // variants={descVariants}
         initial="initial"
         animate={isInView ? "animate" : ""}
       >
-        <motion.h1 variants={descVariants}>{item.title}</motion.h1>
-        <motion.p variants={descVariants}>{item.desc}</motion.p>
-        <motion.a variants={descVariants} href={item.link}>
+        <motion.h1
+        // variants={descVariants}
+        >
+          {item.title}
+        </motion.h1>
+        <motion.p
+        // variants={descVariants}
+        >
+          {item.desc}
+        </motion.p>
+        <motion.a
+          // variants={descVariants}
+          href={item.link}
+        >
           <button>View Project</button>
         </motion.a>
       </motion.div>
@@ -111,32 +123,36 @@ function PortfolioSection() {
   const [PListWidth, setPListWidth] = useState(0);
   const { scrollYProgress } = useScroll({ target: ref });
 
-  const portfolioSectionIsInView = useInView(ref, { margin: "-300px" });
+  // const portfolioSectionIsInView = useInView(ref);
+  const portfolioSectionIsInView = useInView(
+    ref
+    // { margin: "-300px" }
+  );
 
   useEffect(() => {
     if (ref.current) {
       const rect = ref.current.getBoundingClientRect();
       setContainerDistance(rect.left);
-      console.log("RECT:", rect);
-      console.log("REACT LEFT:", rect.left);
-      console.log(
-        "document.documentElement.clientWidth:",
-        document.documentElement.clientWidth
-      );
-      console.log(
-        "document.documentElement.clientWidth * items.length",
-        -document.documentElement.clientWidth * items.length
-      );
-      console.log(
-        "document.documentElement.clientWidth - rect.left",
-        document.documentElement.clientWidth - rect.left
-      );
-      console.log(
-        ".pList width",
-        document.documentElement.clientWidth * items.length +
-          document.documentElement.clientWidth -
-          rect.left
-      );
+      // console.log("RECT:", rect);
+      // console.log("REACT LEFT:", rect.left);
+      // console.log(
+      //   "document.documentElement.clientWidth:",
+      //   document.documentElement.clientWidth
+      // );
+      // console.log(
+      //   "document.documentElement.clientWidth * items.length",
+      //   -document.documentElement.clientWidth * items.length
+      // );
+      // console.log(
+      //   "document.documentElement.clientWidth - rect.left",
+      //   document.documentElement.clientWidth - rect.left
+      // );
+      // console.log(
+      //   ".pList width",
+      //   document.documentElement.clientWidth * items.length +
+      //     document.documentElement.clientWidth -
+      //     rect.left
+      // );
       setPListWidth(
         document.documentElement.clientWidth * items.length +
           document.documentElement.clientWidth -

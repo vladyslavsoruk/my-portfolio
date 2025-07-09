@@ -39,7 +39,8 @@ function App() {
 
   const serviceRef = useRef();
   const serviceIsInView = useInView(serviceRef, {
-    margin: "-200px",
+    // margin: "-200px",
+    amount: 0.5,
     once: true,
   });
 
@@ -50,7 +51,8 @@ function App() {
 
   const contactRef = useRef();
   const contactIsInView = useInView(contactRef, {
-    margin: "-200px",
+    // margin: "-200px",
+    amount: 0.5,
     once: true,
   });
 
@@ -72,27 +74,27 @@ function App() {
             </div> */}
           {/* </div> */}
           <section id="hero" ref={heroRef}>
-            {/* <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
+            <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
               {heroIsInView && <HeroSection />}
-            </Suspense> */}
-            <HeroSection />
+            </Suspense>
+            {/* <HeroSection /> */}
           </section>
           <section id="services" ref={serviceRef}>
-            {/* <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
+            <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
               {serviceIsInView && <ServicesSection />}
-            </Suspense> */}
-            <ServicesSection />
+            </Suspense>
+            {/* <ServicesSection /> */}
           </section>
-          {/* <div ref={portfolioRef}>
+          <div ref={portfolioRef} style={{ position: "relative" }}>
             <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
               {portfolioIsInView && <PortfolioSection />}
             </Suspense>
-          </div> */}
+          </div>
           <section id="contact" ref={contactRef}>
-            {/* <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
+            <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
               {contactIsInView && <ContactSection />}
-            </Suspense> */}
-            <ContactSection />
+            </Suspense>
+            {/* <ContactSection /> */}
           </section>
         </div>
       </LanguageProvider>

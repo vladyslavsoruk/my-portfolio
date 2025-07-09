@@ -69,6 +69,13 @@
   color: var(--text-emphasis);
 }
 
+.greetingSvg {
+  position: relative;
+  top: 10px;
+  width: 120px;
+  height: 120px;
+}
+
 .heroTitle span {
   color: var(--text-primary);
 }
@@ -383,11 +390,17 @@
   .bubbleSkeletonContainer {
     width: 65%;
   }
+  .greetingSvg {
+    position: relative;
+    top: 10px;
+    width: 100px;
+    height: 100px;
+  }
 }
 
 @media (max-width: 1280px) {
   .heroTitle {
-    font-size: 88px;
+    font-size: 80px;
   }
   .bg {
     height: 60%;
@@ -414,6 +427,10 @@
   .bubbleContainer,
   .bubbleSkeletonContainer {
     width: 100%;
+  }
+  .greetingSvg {
+    width: 80px;
+    height: 80px;
   }
 }
 
@@ -537,6 +554,9 @@
   .resume img {
     width: 50px;
     height: 50px;
+  }
+  .greetingSvg {
+    top: 20px;
   }
 }
 @media (max-width: 400px) {

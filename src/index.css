@@ -44,10 +44,10 @@ body[data-theme="dark"] {
   transition: color 0.3s ease-in-out;
 }
 
-html,
+/* html,
 body {
   overscroll-behavior-y: none;
-}
+} */
 
 html {
   scroll-snap-type: y mandatory;
@@ -92,13 +92,15 @@ a {
 }
 
 .container {
+  position: relative;
   max-width: 1536px;
   padding: 0 16px;
   margin: 0 auto;
 }
 
 section {
-  height: 100dvh;
+  height: 100vh;
+  /* height: 100dvh; */
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
