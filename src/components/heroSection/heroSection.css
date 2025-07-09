@@ -231,7 +231,9 @@
 }
 
 .bubble-text span {
-  color: var(--text-emphasis);
+  /* color: var(--text-emphasis); */
+  color: #dd4c62;
+  font-weight: 700;
 }
 
 .bubbleContainer img {

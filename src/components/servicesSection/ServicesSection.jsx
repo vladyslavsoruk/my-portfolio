@@ -42,8 +42,9 @@ const listVariants = {
 
 function ServicesSection() {
   const ref = useRef();
-  const isInView = useInView(ref);
+  // const isInView = useInView(ref);
   // const isInView = useInView(ref, { margin: "-200px" });
+  const isInView = useInView(ref, { amount: 0.5, once: true });
   const [currentServiceId, setCurrentServiceId] = useState(1);
   const { t } = useContext(LanguageContext);
   const [theme] = useContext(ThemeContext);
@@ -62,16 +63,21 @@ function ServicesSection() {
     // );
     console.log(
       "onScrollEVENT: ",
+      window.innerHeight,
       window.scrollY,
       window.pageYOffset,
       document.documentElement.scrollTop,
       document.documentElement.clientWidth,
-      window.innerHeight,
+      document.documentElement.clientHeight,
       document.documentElement.clientHeight * (2 / 3)
     );
-    console.log(window.scrollY >= window.innerHeight);
+    console.log(
+      window.scrollY >= document.documentElement.clientHeight * (2 / 3)
+    );
 
-    setShowReturnBtn(window.scrollY >= window.innerHeight * (2 / 3));
+    setShowReturnBtn(
+      window.scrollY >= document.documentElement.clientHeight * (2 / 3)
+    );
     // setShowReturnBtn(window.scrollY >= window.innerHeight * (2 / 3));
   }
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });

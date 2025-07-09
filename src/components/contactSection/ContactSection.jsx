@@ -15,7 +15,7 @@ const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
 
 const listVariants = {
   initial: {
-    x: 100,
+    x: -100,
     opacity: 0,
   },
   animate: {
@@ -48,7 +48,8 @@ function ContactSection() {
   const formSchema = useMemo(() => createFormSchema(t), [t]);
 
   const formRef = useRef();
-  const formIsInView = useInView(formRef, { margin: "-100px" });
+  const formIsInView = useInView(formRef, { amount: 0.5, once: true });
+  // const formIsInView = useInView(formRef, { margin: "-100px" });
   const [theme] = useContext(ThemeContext);
 
   const {
@@ -87,26 +88,6 @@ function ContactSection() {
         }
       );
   });
-
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-  //   setEmailIsSending(true);
-
-  //   emailjs
-  //     .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, {
-  //       publicKey: PUBLIC_KEY,
-  //     })
-  //     .then(
-  //       () => {
-  //         setEmailIsSending(false);
-  //         toast.success(t("successNotification"));
-  //       },
-  //       (error) => {
-  //         setEmailIsSending(false);
-  //         toast.error(t("errorNotification"));
-  //       }
-  //     );
-  // };
 
   return (
     <div className="contacts">

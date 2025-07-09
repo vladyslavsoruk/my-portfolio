@@ -148,18 +148,17 @@ label {
     z-index: -1;
   }
 }
+
 @media (max-width: 450px) {
   .contacts {
     gap: 20px;
   }
   .cSection {
     padding: 0px;
-  }
-  .cSection:first-child {
-    height: auto;
+    flex: 1;
   }
   .cSection:last-child {
-    height: 25%;
+    margin-bottom: 35px;
   }
   .cTitle {
     font-size: 20px;
@@ -168,6 +167,7 @@ label {
     width: 50px;
   }
   form {
+    margin-top: 35px;
     width: 90%;
     height: 100%;
   }
