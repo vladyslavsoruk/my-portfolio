@@ -35,7 +35,11 @@ const LoadingSkeleton = () => {
 
 function App() {
   const heroRef = useRef();
-  const heroIsInView = useInView(heroRef, { margin: "-200px", once: true });
+  const heroIsInView = useInView(heroRef, {
+    amount: 0.5,
+    margin: "-200px",
+    once: true,
+  });
 
   const serviceRef = useRef();
   const serviceIsInView = useInView(serviceRef, {
@@ -85,7 +89,10 @@ function App() {
             </Suspense>
             {/* <ServicesSection /> */}
           </section>
-          <div ref={portfolioRef} style={{ position: "relative" }}>
+          <div
+            ref={portfolioRef}
+            style={{ position: "relative", overflowX: "clip" }}
+          >
             <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
               {portfolioIsInView && <PortfolioSection />}
             </Suspense>
