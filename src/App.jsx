@@ -91,7 +91,10 @@ function App() {
           </section>
           <div
             ref={portfolioRef}
-            style={{ position: "relative", overflowX: "clip" }}
+            style={{
+              position: "relative",
+              // overflowX: "clip"
+            }}
           >
             <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
               {portfolioIsInView && <PortfolioSection />}
