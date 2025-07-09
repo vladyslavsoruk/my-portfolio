@@ -37,7 +37,7 @@ function App() {
   const heroRef = useRef();
   const heroIsInView = useInView(heroRef, {
     amount: 0.5,
-    margin: "-200px",
+    // margin: "-200px",
     once: true,
   });
 
