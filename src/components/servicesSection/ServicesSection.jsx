@@ -81,23 +81,20 @@ function ServicesSection() {
     // setShowReturnBtn(window.scrollY >= window.innerHeight * (2 / 3));
   }
   const scrollToTop = () => {
-    // 1) Выключаем snap
+    // а) запомним старый стиль
+    const prev = document.documentElement.style.scrollBehavior;
+    // б) выключим плавность (и snap‑догон)
+    document.documentElement.style.scrollBehavior = "auto";
     document.documentElement.style.scrollSnapType = "none";
-    // 2) Форсим reflow, чтобы стиль применился прямо сейчас
-    //    (читаем любое layout‑свойство — например, offsetHeight)
-    void document.documentElement.offsetHeight;
 
-    // 3) Плавно скроллим наверх
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // в) моментальный скролл наверх
+    window.scrollTo(0, 0);
 
-    // 4) Как только достигли верха — включаем snap обратно
-    const restoreSnap = () => {
-      if (window.scrollY === 0) {
-        document.documentElement.style.scrollSnapType = "y mandatory";
-        window.removeEventListener("scroll", restoreSnap);
-      }
-    };
-    window.addEventListener("scroll", restoreSnap, { passive: true });
+    // г) восстановим плавность и snap через RAF
+    requestAnimationFrame(() => {
+      document.documentElement.style.scrollBehavior = prev || "";
+      document.documentElement.style.scrollSnapType = "y mandatory";
+    });
   };
   // const scrollToTop = () =>
   //   document.documentElement.scrollIntoView({
