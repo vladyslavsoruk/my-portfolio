@@ -180,7 +180,7 @@ function PortfolioSection() {
       <section style={{ scrollSnapAlign: "center" }} />
       <section style={{ scrollSnapAlign: "center" }} />
       <section style={{ scrollSnapAlign: "center" }} />
-      <section style={{ scrollSnapAlign: "center" }} />
+      <section style={{ scrollSnapAlign: "end" }} />
       <div
         className="pProgress"
         style={{ display: `${portfolioSectionIsInView ? "block" : "none"}` }}
