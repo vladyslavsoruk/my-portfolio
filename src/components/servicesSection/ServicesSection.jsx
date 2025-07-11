@@ -1,7 +1,7 @@
 import "./servicesSection.css";
 import { useContext, useEffect, useRef, useState } from "react";
 import Counter from "./Counter";
-import { motion, useInView } from "motion/react";
+import { motion, useInView, AnimatePresence } from "motion/react";
 import ComputerModelContainer from "../heroSection/computer/MacbookModelContainer";
 import PlaystationModelContainer from "./playstation/PlaystationModelContainer";
 import MugModelContainer from "./mug/MugModelContainer";
@@ -80,7 +80,12 @@ function ServicesSection() {
     );
     // setShowReturnBtn(window.scrollY >= window.innerHeight * (2 / 3));
   }
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToTop = () =>
+    document.documentElement.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  // const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   useEffect(() => {
     // при загрузке страницы проверяем, проскроллено ли больше, чем высота окна
@@ -148,224 +153,247 @@ function ServicesSection() {
         </div>
       </div>
       <div className="sSection right">
-        {currentServiceId === 1 ? (
-          // <ComputerModelContainer />
+        <AnimatePresence mode="wait">
+          {currentServiceId === 1 ? (
+            // <ComputerModelContainer />
 
-          <div className="techStackContainer">
-            <MouseTrailArea>
-              <div className="techStackList">
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  HTML
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  CSS
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  JavaScript
-                </motion.h2>
-              </div>
-              <div className="techStackList">
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  React
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  TypeScript
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  Redux
-                </motion.h2>
-              </div>
-              <div className="techStackList">
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  Next
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  Tailwind
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  MUI
-                </motion.h2>
-              </div>
-            </MouseTrailArea>
-          </div>
-        ) : currentServiceId === 2 ? (
-          <div className="techStackContainer">
-            <MouseTrailArea>
-              <div className="techStackList">
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  Spring
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  Python
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  .NET
-                </motion.h2>
-              </div>
-              <div className="techStackList">
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  MongoDB
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  PostgreSQL
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  MySQL
-                </motion.h2>
-              </div>
-              <div className="techStackList">
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  NestJS
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  Node js
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  Express
-                </motion.h2>
-              </div>
-              <div className="techStackList">
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  Docker
-                </motion.h2>
-              </div>
-            </MouseTrailArea>
-          </div>
-        ) : (
-          <div className="techStackContainer">
-            <MouseTrailArea>
-              <div className="techStackList">
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  Git
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  Vercel
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  AWS
-                </motion.h2>
-                <motion.h2
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  Jest
-                </motion.h2>
-              </div>
-            </MouseTrailArea>
-          </div>
-        )}
+            <motion.div
+              key="tech-1"
+              className="techStackContainer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <MouseTrailArea>
+                <div className="techStackList">
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    HTML
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    CSS
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    JavaScript
+                  </motion.h2>
+                </div>
+                <div className="techStackList">
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    React
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    TypeScript
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    Redux
+                  </motion.h2>
+                </div>
+                <div className="techStackList">
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    Next
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    Tailwind
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    MUI
+                  </motion.h2>
+                </div>
+              </MouseTrailArea>
+            </motion.div>
+          ) : currentServiceId === 2 ? (
+            <motion.div
+              key="tech-2"
+              className="techStackContainer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <MouseTrailArea>
+                <div className="techStackList">
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    Spring
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    Python
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    .NET
+                  </motion.h2>
+                </div>
+                <div className="techStackList">
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    MongoDB
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    PostgreSQL
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    MySQL
+                  </motion.h2>
+                </div>
+                <div className="techStackList">
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    NestJS
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    Node js
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    Express
+                  </motion.h2>
+                </div>
+                <div className="techStackList">
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    Docker
+                  </motion.h2>
+                </div>
+              </MouseTrailArea>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="tech-3"
+              className="techStackContainer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <MouseTrailArea>
+                <div className="techStackList">
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    Git
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    Vercel
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    AWS
+                  </motion.h2>
+                  <motion.h2
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    Jest
+                  </motion.h2>
+                </div>
+              </MouseTrailArea>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className="counterList-on-small-screen">
           <Counter from={0} to={3} text={t("yearsOfExperience")} />

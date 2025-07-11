@@ -175,10 +175,18 @@ function PortfolioSection() {
           <ListItem item={i} key={i.id} />
         ))}
       </motion.div>
-      <section style={{ scrollSnapAlign: "center" }} />
-      <section style={{ scrollSnapAlign: "center" }} />
-      <section style={{ scrollSnapAlign: "center" }} />
-      <section style={{ scrollSnapAlign: "center" }} />
+      <section
+        style={{ scrollSnapAlign: "center", scrollSnapStop: "always" }}
+      />
+      <section
+        style={{ scrollSnapAlign: "center", scrollSnapStop: "always" }}
+      />
+      <section
+        style={{ scrollSnapAlign: "center", scrollSnapStop: "always" }}
+      />
+      <section
+        style={{ scrollSnapAlign: "center", scrollSnapStop: "always" }}
+      />
       <section style={{ scrollSnapAlign: "end" }} />
       <div
         className="pProgress"
