@@ -78,30 +78,9 @@ function ServicesSection() {
     setShowReturnBtn(
       window.scrollY >= document.documentElement.clientHeight * (2 / 3)
     );
-    // setShowReturnBtn(window.scrollY >= window.innerHeight * (2 / 3));
   }
-  const scrollToTop = () => {
-    // а) запомним старый стиль
-    const prev = document.documentElement.style.scrollBehavior;
-    // б) выключим плавность (и snap‑догон)
-    document.documentElement.style.scrollBehavior = "auto";
-    document.documentElement.style.scrollSnapType = "none";
 
-    // в) моментальный скролл наверх
-    window.scrollTo(0, 0);
-
-    // г) восстановим плавность и snap через RAF
-    requestAnimationFrame(() => {
-      document.documentElement.style.scrollBehavior = prev || "";
-      document.documentElement.style.scrollSnapType = "y mandatory";
-    });
-  };
-  // const scrollToTop = () =>
-  //   document.documentElement.scrollIntoView({
-  //     behavior: "smooth",
-  //     block: "start",
-  //   });
-  // const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   useEffect(() => {
     // при загрузке страницы проверяем, проскроллено ли больше, чем высота окна
