@@ -44,9 +44,8 @@ body[data-theme="dark"] {
   transition: color 0.3s ease-in-out;
 }
 
-body,
 .portfolio {
-  touch-action: pan-y;
+  touch-action: none;
 }
 
 /* html,
