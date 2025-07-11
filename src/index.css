@@ -44,6 +44,11 @@ body[data-theme="dark"] {
   transition: color 0.3s ease-in-out;
 }
 
+body,
+.portfolio {
+  touch-action: pan-y;
+}
+
 /* html,
 body {
   overscroll-behavior-y: none;
