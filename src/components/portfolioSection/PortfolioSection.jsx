@@ -176,11 +176,11 @@ function PortfolioSection() {
           <ListItem item={i} key={i.id} />
         ))}
       </motion.div>
-      <section />
-      <section />
-      <section />
-      <section />
-      <section />
+      <section style={{ scrollSnapAlign: "center" }} />
+      <section style={{ scrollSnapAlign: "center" }} />
+      <section style={{ scrollSnapAlign: "center" }} />
+      <section style={{ scrollSnapAlign: "center" }} />
+      <section style={{ scrollSnapAlign: "center" }} />
       <div
         className="pProgress"
         style={{ display: `${portfolioSectionIsInView ? "block" : "none"}` }}

@@ -44,10 +44,6 @@ body[data-theme="dark"] {
   transition: color 0.3s ease-in-out;
 }
 
-.portfolio {
-  touch-action: none;
-}
-
 /* html,
 body {
   overscroll-behavior-y: none;
