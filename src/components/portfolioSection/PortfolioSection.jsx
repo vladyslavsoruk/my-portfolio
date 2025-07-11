@@ -169,7 +169,6 @@ function PortfolioSection() {
         <div
           style={{
             width: document.documentElement.clientWidth - containerDistance,
-            background: "brown",
           }}
         ></div>
         {items.map((i) => (
