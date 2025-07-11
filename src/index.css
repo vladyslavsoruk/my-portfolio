@@ -50,11 +50,8 @@ body {
 } */
 
 html {
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-
-  /* Prevent scroll bar from showing up because of PortfolioSection width */
-  overflow-x: hidden;
+  /* scroll-snap-type: y mandatory; */
+  /* scroll-behavior: smooth; */
 }
 
 body {

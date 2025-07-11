@@ -176,18 +176,20 @@ function PortfolioSection() {
         ))}
       </motion.div>
       <section
-        style={{ scrollSnapAlign: "center", scrollSnapStop: "always" }}
+      // style={{ scrollSnapAlign: "center", scrollSnapStop: "always" }}
       />
       <section
-        style={{ scrollSnapAlign: "center", scrollSnapStop: "always" }}
+      // style={{ scrollSnapAlign: "center", scrollSnapStop: "always" }}
       />
       <section
-        style={{ scrollSnapAlign: "center", scrollSnapStop: "always" }}
+      // style={{ scrollSnapAlign: "center", scrollSnapStop: "always" }}
       />
       <section
-        style={{ scrollSnapAlign: "center", scrollSnapStop: "always" }}
+      // style={{ scrollSnapAlign: "center", scrollSnapStop: "always" }}
       />
-      <section style={{ scrollSnapAlign: "end" }} />
+      <section
+      // style={{ scrollSnapAlign: "end", scrollSnapStop: "always" }}
+      />
       <div
         className="pProgress"
         style={{ display: `${portfolioSectionIsInView ? "block" : "none"}` }}
