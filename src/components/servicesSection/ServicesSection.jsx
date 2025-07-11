@@ -80,24 +80,24 @@ function ServicesSection() {
     );
     // setShowReturnBtn(window.scrollY >= window.innerHeight * (2 / 3));
   }
-  // const scrollToTop = () => {
-  //   // 1. Отключаем snap
-  //   document.documentElement.style.scrollSnapType = "none";
+  const scrollToTop = () => {
+    // 1. Отключаем snap
+    document.documentElement.style.scrollSnapType = "none";
 
-  //   // 2. Плавно скроллим наверх
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
+    // 2. Плавно скроллим наверх
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
-  //   // 3. Через небольшую задержку включаем snap обратно
-  //   setTimeout(() => {
-  //     document.documentElement.style.scrollSnapType = "y mandatory";
-  //   }, 600);
-  // };
+    // 3. Через небольшую задержку включаем snap обратно
+    setTimeout(() => {
+      document.documentElement.style.scrollSnapType = "y mandatory";
+    }, 600);
+  };
   // const scrollToTop = () =>
   //   document.documentElement.scrollIntoView({
   //     behavior: "smooth",
   //     block: "start",
   //   });
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  // const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   useEffect(() => {
     // при загрузке страницы проверяем, проскроллено ли больше, чем высота окна
