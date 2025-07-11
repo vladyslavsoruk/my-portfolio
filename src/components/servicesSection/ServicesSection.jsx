@@ -80,11 +80,12 @@ function ServicesSection() {
     );
     // setShowReturnBtn(window.scrollY >= window.innerHeight * (2 / 3));
   }
-  const scrollToTop = () =>
-    document.documentElement.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const scrollToTop = () => (window.location.href = "#hero");
+  // const scrollToTop = () =>
+  //   document.documentElement.scrollIntoView({
+  //     behavior: "smooth",
+  //     block: "start",
+  //   });
   // const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   useEffect(() => {
@@ -163,7 +164,7 @@ function ServicesSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3 }}
             >
               <MouseTrailArea>
                 <div className="techStackList">
