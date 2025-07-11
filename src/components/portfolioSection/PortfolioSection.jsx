@@ -123,11 +123,7 @@ function PortfolioSection() {
   const [PListWidth, setPListWidth] = useState(0);
   const { scrollYProgress } = useScroll({ target: ref });
 
-  // const portfolioSectionIsInView = useInView(ref);
-  const portfolioSectionIsInView = useInView(
-    ref
-    // { margin: "-300px" }
-  );
+  const portfolioSectionIsInView = useInView(ref, { margin: "-10%" });
 
   useEffect(() => {
     if (ref.current) {
@@ -173,7 +169,7 @@ function PortfolioSection() {
         <div
           style={{
             width: document.documentElement.clientWidth - containerDistance,
-            // background: "green",
+            background: "brown",
           }}
         ></div>
         {items.map((i) => (

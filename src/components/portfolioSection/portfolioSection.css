@@ -31,20 +31,25 @@
   gap: 20px;
 }
 
-body[data-theme="dark"] .pItem:nth-child(1) {
-  background: linear-gradient(to right, #12071f, #210b3a);
-}
-body[data-theme="dark"] .pItem:nth-child(2) {
-  background: linear-gradient(to right, #210b3a, #371064);
+body[data-theme="dark"] .pList .pItem:nth-child(2) {
+  background: green;
+  /* background: linear-gradient(to right, #170e2a, #290f46); */
 }
 body[data-theme="dark"] .pItem:nth-child(3) {
-  background: linear-gradient(to right, #371064, #390b6e);
+  background: red;
+  /* background: linear-gradient(to right, #290f46, #35135d); */
 }
 body[data-theme="dark"] .pItem:nth-child(4) {
-  background: linear-gradient(to right, #390b6e, #46098b);
+  background: blue;
+  /* background: linear-gradient(to right, #35135d, #3c126d); */
 }
 body[data-theme="dark"] .pItem:nth-child(5) {
-  background: linear-gradient(to right, #46098b, #12071f);
+  background: yellow;
+  /* background: linear-gradient(to right, #3c126d, #42107b); */
+}
+body[data-theme="dark"] .pItem:nth-child(6) {
+  background: pink;
+  /* background: linear-gradient(to right, #42107b, #2f204e); */
 }
 
 .pImg {

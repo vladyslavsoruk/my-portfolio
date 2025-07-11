@@ -93,7 +93,7 @@ function App() {
             ref={portfolioRef}
             style={{
               position: "relative",
-              // overflowX: "clip"
+              // overflowX: "clip",
             }}
           >
             <Suspense fallback={<LoadingSkeleton></LoadingSkeleton>}>
