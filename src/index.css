@@ -1,3 +1,6 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 body[data-theme="light"] {
   /* --background-default: linear-gradient(to bottom, #f5f5f5, #e8daef); */
   /* --text-secondary: #857873; */

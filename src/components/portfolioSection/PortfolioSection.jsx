@@ -1,14 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import "./portfolioSection.css";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
+import PortfolioSlider from "./PortfolioSlider";
 
 const items = [
   {
     id: 1,
     img: "/p1.jpg",
-    title: "Full Stack Blog Application",
+    title: "Full Stack MERN Blog Application",
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
     link: "/",
+    slideshow: [
+      "/mern-blog-app/p1.png",
+      "/mern-blog-app/p2.png",
+      "/mern-blog-app/p3.png",
+      "/mern-blog-app/p4.png",
+      "/mern-blog-app/p5.png",
+      "/mern-blog-app/p6.png",
+      "/mern-blog-app/p7.png",
+      "/mern-blog-app/p8.png",
+    ],
   },
   {
     id: 2,
@@ -16,6 +27,17 @@ const items = [
     title: "School Management System",
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
     link: "/",
+    slideshow: [
+      "/p2.jpg",
+      "/mern-blog-app/p1.png",
+      "/mern-blog-app/p2.png",
+      "/mern-blog-app/p3.png",
+      "/mern-blog-app/p4.png",
+      "/mern-blog-app/p5.png",
+      "/mern-blog-app/p6.png",
+      "/mern-blog-app/p7.png",
+      "/mern-blog-app/p8.png",
+    ],
   },
   {
     id: 3,
@@ -23,6 +45,16 @@ const items = [
     title: "Real-time Chat Application",
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
     link: "/",
+    slideshow: [
+      "/p3.jpg",
+      "/mern-blog-app/p1.png",
+      "/mern-blog-app/p2.png",
+      "/mern-blog-app/p3.png",
+      "/mern-blog-app/p4.png",
+      "/mern-blog-app/p5.png",
+      "/mern-blog-app/p6.png",
+      "/mern-blog-app/p7.png",
+    ],
   },
   {
     id: 4,
@@ -30,6 +62,16 @@ const items = [
     title: "Social Media Project",
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
     link: "/",
+    slideshow: [
+      "/p4.jpg",
+      "/mern-blog-app/p1.png",
+      "/mern-blog-app/p2.png",
+      "/mern-blog-app/p3.png",
+      "/mern-blog-app/p4.png",
+      "/mern-blog-app/p5.png",
+      "/mern-blog-app/p6.png",
+      "/mern-blog-app/p7.png",
+    ],
   },
   {
     id: 5,
@@ -37,6 +79,16 @@ const items = [
     title: "Animated Portfolio Website",
     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
     link: "/",
+    slideshow: [
+      "/p5.jpg",
+      "/mern-blog-app/p1.png",
+      "/mern-blog-app/p2.png",
+      "/mern-blog-app/p3.png",
+      "/mern-blog-app/p4.png",
+      "/mern-blog-app/p5.png",
+      "/mern-blog-app/p6.png",
+      "/mern-blog-app/p7.png",
+    ],
   },
 ];
 
@@ -88,7 +140,8 @@ const ListItem = ({ item }) => {
         initial="initial"
         animate={isInView ? "animate" : ""}
       >
-        <img src={item.img} alt="" />
+        <PortfolioSlider portfolioImages={item.slideshow} />
+        {/* <img src={item.img} alt={item.title} /> */}
       </motion.div>
       <motion.div
         className="pText"
