@@ -1,6 +1,6 @@
 .portfolio {
   /* height: 100%; */
-  height: 600dvh;
+  height: 500dvh;
   /* height: 600vh; */
   position: relative;
 }
@@ -114,13 +114,19 @@ body[data-theme="dark"] .pItem:nth-child(6) {
   color: var(--text-secondary);
 }
 
-.pText button {
+.pLinks button {
   background-color: var(--text-emphasis);
   padding: 12px;
   border-radius: 10px;
   border: none;
   font-weight: 500;
   cursor: pointer;
+}
+
+.pLinks {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
 }
 
 @media (max-width: 1536px) {

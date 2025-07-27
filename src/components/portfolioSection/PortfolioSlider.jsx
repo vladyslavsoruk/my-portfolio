@@ -3,6 +3,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 function PortfolioSlider({ portfolioImages }) {
   const settings = {
+    lazyLoad: "ondemand",
     dots: true,
     infinite: true,
     speed: 500,
