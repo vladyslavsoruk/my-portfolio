@@ -220,7 +220,7 @@ function ServicesSection() {
                       transition: { type: "spring", stiffness: 300 },
                     }}
                   >
-                    Next
+                    Next.js
                   </motion.h2>
                   <motion.h2
                     whileHover={{
@@ -318,7 +318,7 @@ function ServicesSection() {
                       transition: { type: "spring", stiffness: 300 },
                     }}
                   >
-                    Node js
+                    Node.js
                   </motion.h2>
                   <motion.h2
                     whileHover={{
@@ -326,7 +326,7 @@ function ServicesSection() {
                       transition: { type: "spring", stiffness: 300 },
                     }}
                   >
-                    Express
+                    Express.js
                   </motion.h2>
                 </div>
                 <div className="techStackList">
