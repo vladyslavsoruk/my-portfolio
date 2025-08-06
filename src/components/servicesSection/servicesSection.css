@@ -269,4 +269,7 @@
   .counter h1 {
     font-size: 36px;
   }
+  .returnButtonContainer {
+    bottom: 30px;
+  }
 }
