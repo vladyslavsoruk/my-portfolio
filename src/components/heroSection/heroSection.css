@@ -537,7 +537,7 @@
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   .heroTitle {
     font-size: 36px;
   }
@@ -559,7 +559,7 @@
     top: 20px;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .hero {
     gap: 15px;
   }
