@@ -585,8 +585,8 @@ function ContactSection() {
       </div>
       <div className="cSection">
         <ContactSvg />
-        <ToastContainer position="top-center" theme={theme} />
       </div>
+      <ToastContainer position="top-center" theme={theme} />
     </div>
   );
 }
