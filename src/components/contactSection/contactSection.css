@@ -149,7 +149,7 @@ label {
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   .contacts {
     gap: 20px;
   }
