@@ -21,9 +21,11 @@
   height: 80px;
   left: 0;
   bottom: 80%;
+  /* transform: translateX(-100%); */
 }
 
 .pItem {
+  position: relative;
   height: 100dvh;
   width: 100dvw;
   overflow: hidden;
@@ -74,15 +76,21 @@ body[data-theme="dark"] .pItem:nth-child(6) {
   padding: 0 10px;
 }
 
+.slideImgContainer img {
+  cursor: pointer;
+}
+
 .slick-arrow.slick-prev,
-.slick-arrow.slick-next {
+.slick-arrow.slick-next,
+.closeModalCrossBtn {
   color: var(--text-emphasis);
   height: 30px;
   width: 30px;
 }
 
 .slick-arrow.slick-prev:hover,
-.slick-arrow.slick-next:hover {
+.slick-arrow.slick-next:hover,
+.closeModalCrossBtn:hover {
   color: var(--text-primary);
   transition: color 0.3s ease-in-out;
 }
@@ -95,6 +103,69 @@ body[data-theme="dark"] .pItem:nth-child(6) {
 .slick-dots li.slick-active button:before {
   color: var(--text-emphasis);
   opacity: 1;
+}
+
+/* overlay */
+/* relative to the pItem div */
+.fullscreen-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background-default);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* inner container (will not close when clicked) */
+.fullscreen-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  max-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* close full-screen slider mode */
+.fullscreen-close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  /* right: -60px; */
+  /* transform: translateY(-50%); */
+  background: transparent;
+  border: none;
+  z-index: 9999;
+  cursor: pointer;
+}
+.closeModalCrossBtn {
+  height: 65px;
+  width: 65px;
+}
+
+/* react-slick styles for full-screen mode */
+.fullscreen-slider {
+  width: 100%;
+  max-height: 90vh;
+}
+.fullscreen-slide {
+  padding: 0 10px;
+}
+.fullscreen-image {
+  /* width: 100%;
+  height: 100%; */
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain !important;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .pText {

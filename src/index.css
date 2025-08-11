@@ -2,7 +2,7 @@
 @import "slick-carousel/slick/slick-theme.css";
 
 body[data-theme="light"] {
-  /* --background-default: linear-gradient(to bottom, #f5f5f5, #e8daef); */
+  --background-default: linear-gradient(to bottom, #f5f5f5, #e8daef);
   /* --text-secondary: #857873; */
   --text-primary: #2f204e;
   --text-emphasis: rgb(112, 215, 250);
@@ -22,7 +22,7 @@ body[data-theme="light"] {
 }
 
 body[data-theme="dark"] {
-  /* --background-default: linear-gradient(to bottom, #12071f, #2f204e); */
+  --background-default: linear-gradient(to bottom, #12071f, #2f204e);
   --text-primary: white;
   --text-emphasis: pink;
   --text-secondary: #ddd;
