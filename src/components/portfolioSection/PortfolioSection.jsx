@@ -113,6 +113,19 @@ const ListItem = ({ item }) => {
   });
   const { t } = useContext(LanguageContext);
 
+  const [tooltip, setTooltip] = useState(false);
+
+  const schoolSystemLinkHoverStartHandler = () => {
+    if (item.title === "School Management System") {
+      setTooltip(true);
+    }
+  };
+  const schoolSystemLinkHoverEndHandler = () => {
+    if (item.title === "School Management System") {
+      setTooltip(false);
+    }
+  };
+
   return (
     <div className="pItem" ref={ref}>
       <motion.div
@@ -148,10 +161,9 @@ const ListItem = ({ item }) => {
             <button>{t("githubLink")}</button>
           </motion.a>
           {item.deployed && (
-            <motion.a
+            <motion.div
               variants={descVariants}
-              target="_blank"
-              href={item.deployed}
+              style={{ position: "relative" }}
               whileHover={{
                 scale: 1.1,
                 transition: { type: "spring", stiffness: 300 },
@@ -160,9 +172,20 @@ const ListItem = ({ item }) => {
                 scale: 0.95,
                 transition: { type: "spring", stiffness: 500 },
               }}
+              onHoverStart={schoolSystemLinkHoverStartHandler}
+              onHoverEnd={schoolSystemLinkHoverEndHandler}
             >
-              <button>{t("liveDemoLink")}</button>
-            </motion.a>
+              <motion.a target="_blank" href={item.deployed}>
+                <button>{t("liveDemoLink")}</button>
+              </motion.a>
+              {tooltip && (
+                <div className="tooltip">
+                  <span>Login: </span> test-teacher
+                  <br />
+                  <span>Password: </span> testedteacherdemo
+                </div>
+              )}
+            </motion.div>
           )}
         </div>
       </motion.div>

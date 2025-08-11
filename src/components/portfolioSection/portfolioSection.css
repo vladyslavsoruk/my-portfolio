@@ -131,6 +131,33 @@ body[data-theme="dark"] .pItem:nth-child(6) {
   gap: 36px;
 }
 
+.tooltip {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #dd4c62;
+  width: 260px;
+  text-align: center;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.tooltip span {
+  color: #ddd;
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  bottom: 99%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent #dd4c62 transparent;
+}
+
 @media (max-width: 1536px) {
   .pItem {
     gap: 50px;
